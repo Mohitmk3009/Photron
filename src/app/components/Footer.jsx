@@ -104,12 +104,12 @@ const Footer = () => {
                 {/* Socialize Section */}
 
             </div>
-            <div className="lg:h-full lg:my-auto lg:pb-5 py-5 lg:py-0">
+            {/* <div className="lg:h-full lg:my-auto lg:pb-5 py-5 lg:py-0">
                 <h1 className="text-gray-300 md:text-lg  text-[12px] text-center font-medium ">
-                    {/* Copyright &copy; 2024 Chairbord Pvt. Ltd. All rights reserved. */}
+                    {/* Copyright &copy; 2024 Chairbord Pvt. Ltd. All rights reserved. 
                     Designed by Mohit
                 </h1>
-            </div>
+            </div> */}
         </footer>
     );
 };
