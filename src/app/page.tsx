@@ -1,9 +1,24 @@
 import Image from "next/image";
-
+import Header from "./components/Header";
+import ImageCarousel from "./components/ImageCarousel";
+import AboutUs from "./components/AboutUs";
+import ImageGallery from "./components/ImageGallery";
+import Certification from "./components/CertificatesCarousel";
+import TeamMembers from "./components/TeamMembers";
+import Footer from "./components/Footer";
+import ContactUs from "./components/ContactUs";
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+    <div>
+      <Header />
+      <ImageCarousel />
+      <AboutUs />
+      <ImageGallery />
+      <Certification />
+      <TeamMembers />
+      <ContactUs />
+      <Footer />
+      {/* <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
         <Image
           className="dark:invert"
           src="/next.svg"
@@ -97,7 +112,7 @@ export default function Home() {
           />
           Go to nextjs.org →
         </a>
-      </footer>
+      </footer> */}
     </div>
   );
 }
