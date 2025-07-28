@@ -1,4 +1,4 @@
-import Image from "next/image";
+// import Image from "next/image";
 import Header from "./components/Header";
 import ImageCarousel from "./components/ImageCarousel";
 import AboutUs from "./components/AboutUs";
