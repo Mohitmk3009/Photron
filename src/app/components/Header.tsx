@@ -216,13 +216,10 @@
 // export default Header;
 
 'use client';
-import { useEffect, useState, useRef } from 'react'; // Import useRef
+import { useEffect, useState, useRef } from 'react';
 import React from 'react';
-import logo from '../assets/logo.png'; // Placeholder for logo image
-import Image from 'next/image';
-import Link from 'next/link';
-// Replaced Next.js specific imports with standard browser APIs and img tags
-// Removed:
+
+// Removed Next.js specific imports as they are not resolvable in this environment.
 // import { usePathname, useRouter } from 'next/navigation';
 // import Link from 'next/link';
 // import Image from 'next/image';
@@ -230,9 +227,12 @@ import Link from 'next/link';
 
 function Header() {
   // Simulate usePathname and useRouter for a generic React environment
-  const getPathname = () => window.location.pathname;
+  // This will work directly in the browser.
+  const getPathname = () => typeof window !== 'undefined' ? window.location.pathname : '/';
   const navigateTo = (path: string) => {
-    window.location.href = path; // Direct navigation for simplicity
+    if (typeof window !== 'undefined') {
+      window.location.href = path; // Direct navigation for simplicity
+    }
   };
 
   const pathname = getPathname();
@@ -240,44 +240,50 @@ function Header() {
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
-  const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null); // Use useRef to store the timeout ID
+  const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    // Check if the current path is the root
-    if (pathname === '/') {
-      const onScroll = () => {
-        setIsScrolled(window.scrollY > 10);
-      };
-      window.addEventListener('scroll', onScroll);
-      return () => window.removeEventListener('scroll', onScroll);
-    } else {
-      setIsScrolled(true); // Header should be solid black on other pages
+    // This effect runs only on the client-side after component mounts.
+    // Therefore, it's safe to access `window` here.
+    if (typeof window !== 'undefined') {
+      if (pathname === '/') {
+        const onScroll = () => {
+          setIsScrolled(window.scrollY > 10);
+        };
+        window.addEventListener('scroll', onScroll);
+        // Clean up the event listener when the component unmounts or pathname changes
+        return () => window.removeEventListener('scroll', onScroll);
+      } else {
+        // For other pages, ensure the header is always solid black (scrolled state)
+        setIsScrolled(true);
+      }
     }
-  }, [pathname]);
+  }, [pathname]); // Re-run effect if pathname changes
 
   // Determine header classes based on page path and scroll state
   const baseClass = 'w-full top-0 transition-all duration-300';
   let headerClasses;
   let textColor = 'text-white'; // Default text color for black header
-  // Use placeholder images for logos since local imports are not supported
-  // let currentLogoSrc ;
+
+  // Placeholder for logo since local imports like '../assets/logo.png' are not resolved
+  // in this compilation environment without a specific bundler setup.
+  const logoSrc = "https://placehold.co/100x50/000000/FFFFFF?text=LOGO";
+
 
   if (pathname === '/') {
-    // Home page logic
+    // Home page logic: header changes based on scroll
     if (isScrolled) {
       headerClasses = 'fixed z-50 bg-black backdrop-blur-md shadow-md';
       textColor = 'text-white';
-
     } else {
-      headerClasses = ' bg-white shadow-none'; // White header, no shadow initially
+      // Initially white header on home page when not scrolled
+      headerClasses = ' bg-white shadow-none';
       textColor = 'text-gray-800'; // Darker text for white background
-
     }
   } else {
-    // Other pages logic
+    // Other pages logic: header is always solid black
     headerClasses = 'bg-black shadow-md';
     textColor = 'text-white';
-
   }
 
   // Handle mouse entering the services dropdown area
@@ -297,7 +303,9 @@ function Header() {
     }, 200); // 200ms delay, adjust as needed
   };
 
+  // Handle click on a service item in the dropdown
   const handleServiceClick = (service: string) => {
+    // Use the mock router for navigation
     router.push(`/services?service=${encodeURIComponent(service)}`);
     setIsServicesDropdownOpen(false); // Close dropdown after clicking
     if (dropdownTimeoutRef.current) {
@@ -310,23 +318,23 @@ function Header() {
     <header className={`${baseClass} ${headerClasses}`}>
       <div className="w-full mx-auto px-6 py-4 flex justify-between items-center">
         <div>
-          {/* Replaced Next.js Image component with standard img tag */}
-          <Image
-            src={logo} // Use dynamic logo source based on header state
+          {/* Using a standard <img> tag with a placeholder URL */}
+          <img
+            src={logoSrc}
             alt="Logo"
-            className="h-[50px] w-[100px]"
+            className="h-[50px] w-[100px]" // Tailwind classes for visual size
           />
         </div>
         <nav className="space-x-10 text-xl font-semibold flex items-center">
-          {/* Replaced Next.js Link component with standard a tag */}
-          <Link href="/" className={`${textColor} hover:text-[#035096]`}>Home</Link>
-          <Link href="/aboutus" className={`${textColor} hover:text-[#035096]`}>About</Link>
+          {/* Using standard <a> tags for navigation */}
+          <a href="/" className={`${textColor} hover:text-[#035096]`}>Home</a>
+          <a href="/aboutus" className={`${textColor} hover:text-[#035096]`}>About</a>
 
           {/* Services Dropdown */}
           <div
             className="relative"
-            onMouseEnter={handleMouseEnter} // Use the new handler
-            onMouseLeave={handleMouseLeave} // Use the new handler
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
           >
             <button className={`${textColor} hover:text-[#035096] focus:outline-none flex items-center`}>
               Services
@@ -371,7 +379,7 @@ function Header() {
             )}
           </div>
 
-          <Link href="/contactus" className={`${textColor} hover:text-[#035096]`}>Contact</Link>
+          <a href="/contactus" className={`${textColor} hover:text-[#035096]`}>Contact</a>
         </nav>
       </div>
     </header>
