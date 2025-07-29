@@ -66,7 +66,7 @@ import Link from 'next/link';
 function Header() {
   // Simulate usePathname and useRouter for a generic React environment
   const getPathname = () => window.location.pathname;
-  const navigateTo = (path) => {
+  const navigateTo = (path:any) => {
     window.location.href = path; // Direct navigation for simplicity
   };
 
@@ -132,7 +132,7 @@ function Header() {
     }, 200); // 200ms delay, adjust as needed
   };
 
-  const handleServiceClick = (service) => {
+  const handleServiceClick = (service:any) => {
     router.push(`/services?service=${encodeURIComponent(service)}`);
     setIsServicesDropdownOpen(false); // Close dropdown after clicking
     if (dropdownTimeoutRef.current) {
