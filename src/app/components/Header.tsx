@@ -223,7 +223,8 @@ import React from 'react';
 // import { usePathname, useRouter } from 'next/navigation';
 // import Link from 'next/link';
 // import Image from 'next/image';
-// import logo from '../assets/logo.png';
+import logo from '../assets/logo.png';
+import Image from 'next/image';
 
 function Header() {
   // Simulate usePathname and useRouter for a generic React environment
@@ -267,7 +268,7 @@ function Header() {
 
   // Placeholder for logo since local imports like '../assets/logo.png' are not resolved
   // in this compilation environment without a specific bundler setup.
-  const logoSrc = "https://placehold.co/100x50/000000/FFFFFF?text=LOGO";
+  // const logoSrc = logo;
 
 
   if (pathname === '/') {
@@ -319,8 +320,8 @@ function Header() {
       <div className="w-full mx-auto px-6 py-4 flex justify-between items-center">
         <div>
           {/* Using a standard <img> tag with a placeholder URL */}
-          <img
-            src={logoSrc}
+          <Image
+            src={logo}
             alt="Logo"
             className="h-[50px] w-[100px]" // Tailwind classes for visual size
           />
