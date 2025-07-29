@@ -81,7 +81,7 @@ const Footer = () => {
                     <h2 className="lg:text-3xl text-xl font-bold text-[#71AAC8] lg:mt-0 mt-4  mb-2">SOCIALIZE</h2>
                     <div className="flex space-x-4">
                         <Link
-                            href="https://www.linkedin.com/company/chairbord/posts/?feedView=all"
+                            href="https://www.linkedin.com/"
                             className="text-white hover:bg-white bg-[#00B4FF]/15 px-2 py-1 rounded-full hover:text-[#0A66C2]"
                         >
                             <i className="ri-linkedin-fill text-2xl"></i> {/* Remix Icon LinkedIn */}

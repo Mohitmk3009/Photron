@@ -56,11 +56,53 @@ function ServicesPage() {
             </ul>
           </div>
         );
+        case 'Pollution Control':
+                return (
+                    <div className="bg-white p-6 rounded-lg shadow-md">
+                        <h2 className="text-2xl font-bold mb-4 text-gray-800">Pollution Control</h2>
+                        <p className="text-gray-700 mb-4">Pollution testing services encompass a wide range of activities aimed at monitoring, measuring, and analyzing various types of environmental pollution. These services help industries, governments, and individuals ensure compliance with environmental regulations and safeguard public health. Here's a breakdown of the main services in pollution testing:</p>
+                        <h3 className="text-xl font-semibold mb-2 text-gray-800">1. Air Pollution Testing</h3>
+                        <ul className="list-disc list-inside space-y-1 text-gray-700 ml-4 mb-4">
+                            <li>Ambient Air Quality Monitoring</li>
+                            <li>Stack Emission Testing (from factories, power plants, etc.)</li>
+                            <li>Indoor Air Quality Testing (offices, homes, hospitals)</li>
+                            <li>Vehicle Emission Testing</li>
+                            <li>Dust & Particulate Matter Monitoring</li>
+                            <li>Gaseous Pollutants Monitoring (e.g., SOx, NOx, CO, VOCs, ozone)</li>
+                        </ul>
+                        <h3 className="text-xl font-semibold mb-2 text-gray-800">2. Water Pollution Testing</h3>
+                        <ul className="list-disc list-inside space-y-1 text-gray-700 ml-4 mb-4">
+                            <li>Drinking Water Quality Testing</li>
+                            <li>Wastewater Testing (industrial effluent, sewage)</li>
+                            <li>Surface Water Testing (rivers, lakes)</li>
+                            <li>Groundwater Quality Testing</li>
+                            <li>Heavy Metal Analysis (lead, mercury, arsenic)</li>
+                            <li>Biological Oxygen Demand (BOD) / Chemical Oxygen Demand (COD) testing</li>
+                        </ul>
+                        <h3 className="text-xl font-semibold mb-2 text-gray-800">3. Soil Pollution Testing</h3>
+                        <ul className="list-disc list-inside space-y-1 text-gray-700 ml-4 mb-4">
+                            <li>Soil Contamination Analysis (due to heavy metals, hydrocarbons, pesticides)</li>
+                            <li>Leachate Testing (for landfills)</li>
+                            <li>Agricultural Soil Testing (nutrient and contamination assessment)</li>
+                        </ul>
+                        <h3 className="text-xl font-semibold mb-2 text-gray-800">4. Noise Pollution Testing</h3>
+                        <ul className="list-disc list-inside space-y-1 text-gray-700 ml-4 mb-4">
+                            <li>Ambient Noise Level Monitoring</li>
+                            <li>Workplace Noise Monitoring</li>
+                            <li>Construction/Traffic Noise Impact Assessment</li>
+                        </ul>
+                        <h3 className="text-xl font-semibold mb-2 text-gray-800">5. Radiation Pollution Testing</h3>
+                        <ul className="list-disc list-inside space-y-1 text-gray-700 ml-4">
+                            <li>Radioactive Contaminant Testing in soil, water, and air</li>
+                            <li>Electromagnetic Radiation Testing from telecom towers, electrical equipment</li>
+                        </ul>
+                    </div>
+                );
       case 'Instrumentation Facilities':
         return (
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h2 className="text-2xl font-bold mb-4 text-gray-800">Instrumentation Facilities</h2>
-            {/* <p className="text-gray-700">Our architectural design team creates innovative and functional designs tailored to your vision and needs. We focus on aesthetics, sustainability, and practicality.</p> */}
+            <p className="text-gray-700">Photron Laboratories helps to services include installation, performance verification, routine maintenance, calibration, troubleshooting, documentation, and regulatory compliance activities for laboratory instruments such as spectrophotometers, samplers, and analyzers.</p>
             <ul className="list-disc list-inside mt-4 space-y-2 text-gray-700">
               <li>ATOMIC ABSORPTION SPECTROPHOTOMETER</li>
               <li>UV VISIBLE SPECTROPHOTOMETER</li>

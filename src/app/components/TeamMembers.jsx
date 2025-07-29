@@ -1025,52 +1025,52 @@ import Image from "next/image";
 const teamMembers = [
   {
     id: 1,
-    name: 'Sienna Hewitt',
-    title: 'Founder & CEO',
-    description: 'Former co-founder of Opendoor. Early staff at Spotify and Clearbit.',
+    name: 'Santosh Tiwari',
+    title: 'General Manager ',
+    // description: 'Former co-founder of Opendoor. Early staff at Spotify and Clearbit.',
     // For local images, place them in your Next.js public directory (e.g., public/images/sienna.jpg)
     // and reference them like this: '/images/sienna.jpg'
     image: m1 // Example local image path
   },
   {
     id: 2,
-    name: 'Ashwin Santiago',
-    title: 'Engineering Manager',
-    description: 'Lead engineering teams at Netflix, Pitch, and Protocol Labs',
+    name: 'Rahul kumar',
+    title: 'Technical Manager',
+    // description: 'Lead engineering teams at Netflix, Pitch, and Protocol Labs',
     image: m2 // Example local image path
   },
-  {
-    id: 1,
-    name: 'Sienna Hewitt',
-    title: 'Founder & CEO',
-    description: 'Former co-founder of Opendoor. Early staff at Spotify and Clearbit.',
-    // For local images, place them in your Next.js public directory (e.g., public/images/sienna.jpg)
-    // and reference them like this: '/images/sienna.jpg'
-    image: m1 // Example local image path
-  },
-  {
-    id: 2,
-    name: 'Ashwin Santiago',
-    title: 'Engineering Manager',
-    description: 'Lead engineering teams at Netflix, Pitch, and Protocol Labs',
-    image: m2 // Example local image path
-  },
-  {
-    id: 1,
-    name: 'Sienna Hewitt',
-    title: 'Founder & CEO',
-    description: 'Former co-founder of Opendoor. Early staff at Spotify and Clearbit.',
-    // For local images, place them in your Next.js public directory (e.g., public/images/sienna.jpg)
-    // and reference them like this: '/images/sienna.jpg'
-    image: m1 // Example local image path
-  },
-  {
-    id: 2,
-    name: 'Ashwin Santiago',
-    title: 'Engineering Manager',
-    description: 'Lead engineering teams at Netflix, Pitch, and Protocol Labs',
-    image: m2 // Example local image path
-  },
+  // {
+  //   id: 1,
+  //   name: 'Sienna Hewitt',
+  //   title: 'Founder & CEO',
+  //   description: 'Former co-founder of Opendoor. Early staff at Spotify and Clearbit.',
+  //   // For local images, place them in your Next.js public directory (e.g., public/images/sienna.jpg)
+  //   // and reference them like this: '/images/sienna.jpg'
+  //   image: m1 // Example local image path
+  // },
+  // {
+  //   id: 2,
+  //   name: 'Ashwin Santiago',
+  //   title: 'Engineering Manager',
+  //   description: 'Lead engineering teams at Netflix, Pitch, and Protocol Labs',
+  //   image: m2 // Example local image path
+  // },
+  // {
+  //   id: 1,
+  //   name: 'Sienna Hewitt',
+  //   title: 'Founder & CEO',
+  //   description: 'Former co-founder of Opendoor. Early staff at Spotify and Clearbit.',
+  //   // For local images, place them in your Next.js public directory (e.g., public/images/sienna.jpg)
+  //   // and reference them like this: '/images/sienna.jpg'
+  //   image: m1 // Example local image path
+  // },
+  // {
+  //   id: 2,
+  //   name: 'Ashwin Santiago',
+  //   title: 'Engineering Manager',
+  //   description: 'Lead engineering teams at Netflix, Pitch, and Protocol Labs',
+  //   image: m2 // Example local image path
+  // },
   // {
   //   id: 3,
   //   name: 'Caitlyn King',
@@ -1153,7 +1153,7 @@ const TeamMembers = () => {
   }, []);
 
   return (
-    <div className=" bg-white font-inter py-12 px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+    <div className=" bg-white font-inter py-10 pt-5 px-4 sm:px-6 lg:px-8 flex flex-col items-center">
       <div className="flex items-center justify-center lg:mb-6 lg:px-6 px-5 lg:w-fit w-full">
                     <div className="flex-grow border-t border-gray-300 h-[1px] w-[150px] "></div>
                     <h1 className="text-4xl font-extrabold text-gray-900 mb-3 mx-4 text-center">Meet our Team</h1>
@@ -1181,8 +1181,8 @@ const TeamMembers = () => {
                   <Image
                     src={member.image}
                     alt={member.name}
-                    height={200}
-                    width={200}
+                    height={500}
+                    width={500}
                     className="absolute inset-0 w-full h-full object-cover rounded-t-xl"
                     // Fallback to a placeholder if the local image path is incorrect or image is missing
                     onError={(e) => { e.target.onerror = null; e.target.src = `https://placehold.co/150x150/E0F2F7/000000?text=${member.name.split(' ')[0]}`; }}

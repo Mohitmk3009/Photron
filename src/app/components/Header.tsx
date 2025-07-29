@@ -51,21 +51,33 @@
 // export default Header;
 
 'use client';
-import { usePathname, useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
+import { useEffect, useState, useRef } from 'react'; // Import useRef
 import React from 'react';
-import logo from '../assets/logo.png'; // Make sure this path is correct
-// import blackLogo from '../assets/logo-black.png'; // Assuming you have a black logo for the white header background
+import logo from '../assets/logo.png'; // Placeholder for logo image
+import Image from 'next/image';
+// Replaced Next.js specific imports with standard browser APIs and img tags
+// Removed:
+// import { usePathname, useRouter } from 'next/navigation';
+// import Link from 'next/link';
+// import Image from 'next/image';
+// import logo from '../assets/logo.png';
 
 function Header() {
-  const pathname = usePathname();
-  const router = useRouter();
+  // Simulate usePathname and useRouter for a generic React environment
+  const getPathname = () => window.location.pathname;
+  const navigateTo = (path) => {
+    window.location.href = path; // Direct navigation for simplicity
+  };
+
+  const pathname = getPathname();
+  const router = { push: navigateTo }; // Mock router for compatibility
+
   const [isScrolled, setIsScrolled] = useState(false);
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
+  const dropdownTimeoutRef = useRef(null); // Use useRef to store the timeout ID
 
   useEffect(() => {
+    // Check if the current path is the root
     if (pathname === '/') {
       const onScroll = () => {
         setIsScrolled(window.scrollY > 10);
@@ -81,52 +93,74 @@ function Header() {
   const baseClass = 'w-full top-0 transition-all duration-300';
   let headerClasses;
   let textColor = 'text-white'; // Default text color for black header
-  let currentLogo = logo; // Default logo for black header
+  // Use placeholder images for logos since local imports are not supported
+  let currentLogoSrc =logo;
 
   if (pathname === '/') {
     // Home page logic
     if (isScrolled) {
       headerClasses = 'fixed z-50 bg-black backdrop-blur-md shadow-md';
       textColor = 'text-white';
-      currentLogo = logo; // Use white logo on black background
+      currentLogoSrc = logo // White text on black background for scrolled/black header
     } else {
       headerClasses = ' bg-white shadow-none'; // White header, no shadow initially
       textColor = 'text-gray-800'; // Darker text for white background
-      currentLogo = logo; // Use black logo on white background
+      currentLogoSrc = logo // Black text on white background for initial/white header
     }
   } else {
     // Other pages logic
     headerClasses = 'bg-black shadow-md';
     textColor = 'text-white';
-    currentLogo = logo; // Use white logo on black background
+    currentLogoSrc = logo // White text on black background for other pages
   }
+
+  // Handle mouse entering the services dropdown area
+  const handleMouseEnter = () => {
+    if (dropdownTimeoutRef.current) {
+      clearTimeout(dropdownTimeoutRef.current); // Clear any pending close timeout
+      dropdownTimeoutRef.current = null;
+    }
+    setIsServicesDropdownOpen(true);
+  };
+
+  // Handle mouse leaving the services dropdown area
+  const handleMouseLeave = () => {
+    // Set a timeout to close the dropdown after a short delay
+    dropdownTimeoutRef.current = setTimeout(() => {
+      setIsServicesDropdownOpen(false);
+    }, 200); // 200ms delay, adjust as needed
+  };
 
   const handleServiceClick = (service) => {
     router.push(`/services?service=${encodeURIComponent(service)}`);
     setIsServicesDropdownOpen(false); // Close dropdown after clicking
+    if (dropdownTimeoutRef.current) {
+      clearTimeout(dropdownTimeoutRef.current); // Clear timeout if an option is clicked
+      dropdownTimeoutRef.current = null;
+    }
   };
 
   return (
     <header className={`${baseClass} ${headerClasses}`}>
       <div className="w-full mx-auto px-6 py-4 flex justify-between items-center">
         <div>
+          {/* Replaced Next.js Image component with standard img tag */}
           <Image
-            src={currentLogo} // Use dynamic logo based on header state
+            src={logo} // Use dynamic logo source based on header state
             alt="Logo"
-            width={100}
-            height={100}
             className="h-[50px] w-[100px]"
           />
         </div>
         <nav className="space-x-10 text-xl font-semibold flex items-center">
-          <Link href="/" className={`${textColor} hover:text-gray-300`}>Home</Link>
-          <Link href="/aboutus" className={`${textColor} hover:text-gray-300`}>About</Link>
+          {/* Replaced Next.js Link component with standard a tag */}
+          <a href="/" className={`${textColor} hover:text-gray-300`}>Home</a>
+          <a href="/aboutus" className={`${textColor} hover:text-gray-300`}>About</a>
 
           {/* Services Dropdown */}
           <div
             className="relative"
-            onMouseEnter={() => setIsServicesDropdownOpen(true)}
-            onMouseLeave={() => setIsServicesDropdownOpen(false)}
+            onMouseEnter={handleMouseEnter} // Use the new handler
+            onMouseLeave={handleMouseLeave} // Use the new handler
           >
             <button className={`${textColor} hover:text-gray-300 focus:outline-none flex items-center`}>
               Services
@@ -156,22 +190,22 @@ function Header() {
                   Environment
                 </button>
                 <button
+                  onClick={() => handleServiceClick('Pollution Control')}
+                  className="block px-4 py-2 text-gray-800 hover:bg-gray-100 w-full text-left text-sm"
+                >
+                  Pollution Control
+                </button>
+                <button
                   onClick={() => handleServiceClick('Instrumentation Facilities')}
                   className="block px-4 py-2 text-gray-800 hover:bg-gray-100 w-full text-left text-sm"
                 >
                   Instrumentation Facilities
                 </button>
-                {/* <button
-                  onClick={() => handleServiceClick('Project Management')}
-                  className="block px-4 py-2 text-gray-800 hover:bg-gray-100 w-full text-left text-base"
-                >
-                  Project Management
-                </button> */}
               </div>
             )}
           </div>
 
-          <Link href="/contactus" className={`${textColor} hover:text-gray-300`}>Contact</Link>
+          <a href="/contactus" className={`${textColor} hover:text-gray-300`}>Contact</a>
         </nav>
       </div>
     </header>

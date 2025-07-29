@@ -101,7 +101,7 @@ const ContactUs = () => {
 
 
             {/* Contact Section */}
-            <div className="container mx-auto px-4 lg:py-12 py-6 flex justify-center flex-col items-center">
+            <div className="container mx-auto px-4 lg:py-10 pt-5 py-6 flex justify-center flex-col items-center">
                 <div className="flex items-center justify-center lg:mb-6 lg:px-6 px-5 lg:w-fit w-full">
                     <div className="flex-grow border-t border-gray-300 h-[1px] w-[150px] "></div>
                     <h1 className="text-4xl font-extrabold text-gray-900 mb-3 mx-4 text-center">Get in touch with us</h1>

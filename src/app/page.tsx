@@ -2,6 +2,7 @@
 import Header from "./components/Header";
 import ImageCarousel from "./components/ImageCarousel";
 import AboutUs from "./components/AboutUs";
+import OurServices from "./components/OurServices";
 import ImageGallery from "./components/ImageGallery";
 import Certification from "./components/CertificatesCarousel";
 import TeamMembers from "./components/TeamMembers";
@@ -14,6 +15,7 @@ export default function Home() {
       <Header />
       <ImageCarousel />
       <AboutUs />
+      <OurServices/>
       <ImageGallery />
       <Certification />
       <TeamMembers />

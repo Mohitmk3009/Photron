@@ -21,22 +21,22 @@ import "swiper/css/navigation";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 // ---- Certificate assets ----------------------------------------------------
-import certPage1 from "../assets/c1.png";
-import certPage2 from "../assets/c2.png";
-import bisApproved from "../assets/c3.png";
-import iso9001 from "../assets/c4.png";
-import iso14001 from "../assets/c1.png";
+import iso45001 from "../assets/c3.png";
+import iso17025 from "../assets/c4.png";
+import iso9001 from "../assets/c1.png";
+import udhyam from "../assets/c5.jpg";
+import iso14001 from "../assets/c2.png";
+
 // import iso45001 from "@/public/certs/iso-45001.jpg";
 // import nabl from "@/public/certs/nabl.jpg";
 
 const certificates = [
-  { src: bisApproved, alt: "BIS Approved", label: "BIS Approved" },
-  { src: iso9001, alt: "ISO 9001:2015 Certificate", label: "ISO: 9001: 2015" },
-  { src: iso14001, alt: "ISO 14001:2015 Certificate", label: "ISO: 14001: 2015" },
-  // { src: iso45001, alt: "ISO 45001:2018 Certificate", label: "ISO: 45001: 2018" },
-  // { src: nabl, alt: "NABL Accreditation", label: "NABL Accredited" },
-  { src: certPage1, alt: "CPCB Recognition – page 1", label: "CPCB/MoEF – Page‑1" },
-  { src: certPage2, alt: "CPCB Recognition – page 2", label: "CPCB/MoEF – Page‑2" },
+  { src: iso45001, alt: "ISO 45001:2018 Certificate", label: "ISO 45001:2018" },
+  { src: iso17025, alt: "ISO/IEC 17025:2017", label: "ISO/IEC 17025:2017" },
+  { src: iso9001, alt: "ISO 9001:2015 Certificate", label: "ISO: 9001:2015"  },
+  { src: iso14001,  alt: "ISO 14001:2015 Certificate", label: "ISO: 14001: 2015" },
+  { src: udhyam, alt: "CPCB Recognition – page 1", label: "CPCB/MoEF – Page‑1" },
+
 ];
 
 // ---- Component -------------------------------------------------------------
@@ -45,7 +45,7 @@ export default function CertificatesCarousel({ className = "" }) {
   const nextRef = useRef(null);
 
   return (
-    <section className={`w-full py-5 flex flex-col items-center bg-gray-100  ${className}`}>
+    <section className={`w-full py-5 flex flex-col items-center bg-gradient-to-br from-cyan-50 to-indigo-50  ${className}`}>
       {/* Heading ----------------------------------------------------------- */}
       <div className="flex items-center justify-center lg:mb-6 lg:px-6 px-5 lg:w-fit w-full">
                 <div className="flex-grow border-t border-gray-300 h-[1px] w-[150px] "></div>
