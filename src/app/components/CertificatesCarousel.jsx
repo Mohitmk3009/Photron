@@ -45,13 +45,13 @@ export default function CertificatesCarousel({ className = "" }) {
   const nextRef = useRef(null);
 
   return (
-    <section className={`w-full py-5 flex flex-col items-center bg-gray-50  ${className}`}>
+    <section className={`w-full py-5 flex flex-col items-center bg-gray-100  ${className}`}>
       {/* Heading ----------------------------------------------------------- */}
       <div className="flex items-center justify-center lg:mb-6 lg:px-6 px-5 lg:w-fit w-full">
-        <div className="flex-grow border-t border-gray-300 h-[1px] w-[150px]"></div>
-        <h2 className="text-center mx-4 lg:text-2xl text-lg font-semibold text-black"> Accreditations &amp; Approvals</h2>
-        <div className="flex-grow border-t border-gray-300 h-[1px] w-[150px] "></div>
-      </div>
+                <div className="flex-grow border-t border-gray-300 h-[1px] w-[150px] "></div>
+                <h1 className="text-4xl font-extrabold text-gray-900 mb-3 mx-4 text-center">Certificates</h1>
+                <div className="flex-grow border-t border-gray-300 h-[1px] w-[150px] "></div>
+            </div>
       {/* <div className="w-24 h-[3px] bg-green-500 mx-auto mt-3 mb-8" /> */}
 
       {/* Slider wrapper to position arrows */}

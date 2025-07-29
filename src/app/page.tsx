@@ -5,6 +5,7 @@ import AboutUs from "./components/AboutUs";
 import ImageGallery from "./components/ImageGallery";
 import Certification from "./components/CertificatesCarousel";
 import TeamMembers from "./components/TeamMembers";
+import FrequentlyAskedQuestions from "./components/FrequentlyAskedQuestions"
 import Footer from "./components/Footer";
 import ContactUs from "./components/ContactUs";
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
       <ImageGallery />
       <Certification />
       <TeamMembers />
+      <FrequentlyAskedQuestions/>
       <ContactUs />
       <Footer />
       {/* <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">

@@ -64,7 +64,7 @@ const ContactUs = () => {
     };
 
     return (
-        <div className="bg-gray-50">
+        <div className="bg-white">
             {/* Hero Section */}
             {/* <div
                 className="relative text-white text-center lg:py-20 py-8"
@@ -101,10 +101,12 @@ const ContactUs = () => {
 
 
             {/* Contact Section */}
-            <div className="container mx-auto px-4 lg:py-12 py-6">
-                <h2 className="lg:text-4xl text-3xl font-bold text-gray-800 text-center lg:mb-6 mb-4">
-                    Get in touch with us.
-                </h2>
+            <div className="container mx-auto px-4 lg:py-12 py-6 flex justify-center flex-col items-center">
+                <div className="flex items-center justify-center lg:mb-6 lg:px-6 px-5 lg:w-fit w-full">
+                    <div className="flex-grow border-t border-gray-300 h-[1px] w-[150px] "></div>
+                    <h1 className="text-4xl font-extrabold text-gray-900 mb-3 mx-4 text-center">Get in touch with us</h1>
+                    <div className="flex-grow border-t border-gray-300 h-[1px] w-[150px] "></div>
+                </div>
                 <p className="text-center text-gray-600 lg:mb-8">
                     Want to get in touch? We&apos;d love to hear from you. Here&apos;s how you can
                     reach us...
@@ -144,7 +146,7 @@ const ContactUs = () => {
                             <div className=" mt-[-5px]">
                                 <p className="font-semibold lg:text-xl text-lg text-black">Location:</p>
                                 <p className="text-gray-600 lg:w-5/6 text-justify lg:text-lg text-sm">
-                                     G-32, Kh. No. 76/14 & Laxmi Park Nangloi, West Delhi-110041, India
+                                    G-32, Kh. No. 76/14 & Laxmi Park Nangloi, West Delhi-110041, India
                                 </p>
                             </div>
                         </div>

@@ -56,13 +56,12 @@ const ImageGallery = () => {
   }, []);
 
   return (
-    <section className="bg-white  px-5 lg:px-16 py-5">
-      <div className="flex items-center justify-center mb-4">
-        <div className="flex-grow border-t border-gray-300 max-w-[150px] "></div>
-        <h2 className="text-center mx-4 text-2xl font-semibold text-black">Gallery</h2>
-        <div className="flex-grow border-t border-gray-300 max-w-[150px]"></div>
+    <section className="bg-white flex flex-col justify-center items-center px-5 lg:px-16 py-5">
+      <div className="flex items-center justify-center lg:mb-6 lg:px-6 px-5 lg:w-fit w-full">
+        <div className="flex-grow border-t border-gray-300 h-[1px] w-[150px] "></div>
+        <h1 className="text-4xl font-extrabold text-gray-900 mb-3 mx-4 text-center">Gallery</h1>
+        <div className="flex-grow border-t border-gray-300 h-[1px] w-[150px] "></div>
       </div>
-
       <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-3 gap-4 px-4 sm:px-20  space-y-4">
         {images.map((image, index) => (
           <div

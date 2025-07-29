@@ -34,12 +34,12 @@ const AboutUs = () => {
     return (
         <section
             ref={sectionRef}
-            className="bg-gray-50  lg:py-10 py-10 px-5  lg:px-16 "
+            className="bg-gray-100 flex flex-col items-center justify-center lg:py-10 py-10 px-5  lg:px-16 "
         >
-            <div className="flex items-center justify-center lg:my-6  my-2  mt-[-30px] lg:mt-[-25px]  ">
-                <div className="flex-grow border-t border-gray-300 h-[1px] max-w-[150px]"></div>
-                <h2 className="text-center mx-4 lg:text-2xl text-lg font-semibold text-black">About us</h2>
-                <div className="flex-grow border-t border-gray-300 h-[1px] max-w-[150px]"></div>
+            <div className="flex items-center justify-center lg:mb-6 lg:px-6 px-5 lg:w-fit w-full">
+                <div className="flex-grow border-t border-gray-300 h-[1px] w-[150px] "></div>
+                <h1 className="text-4xl font-extrabold text-gray-900 mb-3 mx-4 text-center">About us</h1>
+                <div className="flex-grow border-t border-gray-300 h-[1px] w-[150px] "></div>
             </div>
             <div className="lg:max-w-[1600px] w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
                 {/* Left Section */}
@@ -71,19 +71,19 @@ const AboutUs = () => {
                         <ul className="list-disc pl-6 mt-2 space-y-1">
 
                             <li>
-                                <span className="font-semibold text-sm">Water & Wastewater Analysis</span> 
+                                <span className="font-semibold text-sm">Water & Wastewater Analysis</span>
                             </li>
                             <li>
-                                <span className="font-semibold text-sm">Ambient Air Quality Monitoring</span> 
+                                <span className="font-semibold text-sm">Ambient Air Quality Monitoring</span>
                             </li>
                             <li>
-                                <span className="font-semibold text-sm">Stack Emission Monitoring</span> 
+                                <span className="font-semibold text-sm">Stack Emission Monitoring</span>
                             </li>
                             <li>
-                                <span className="font-semibold text-sm">Ambient Noise Monitoring</span> 
+                                <span className="font-semibold text-sm">Ambient Noise Monitoring</span>
                             </li>
                             <li>
-                                <span className="font-semibold text-sm">Soil & Sediment Testing</span> 
+                                <span className="font-semibold text-sm">Soil & Sediment Testing</span>
                             </li>
                         </ul>
                         <h2 className="lg:text-2xl text-lg  font-bold lg:mt-4 mt-2  ">Why Choose Us?</h2>
@@ -92,22 +92,22 @@ const AboutUs = () => {
                         <ul className="list-disc pl-6 mt-2 space-y-1">
 
                             <li>
-                                <span className="font-semibold text-sm ">NABL-Certified Facility</span> 
+                                <span className="font-semibold text-sm ">NABL-Certified Facility</span>
                             </li>
                             <li>
-                                <span className="font-semibold text-sm">Accurate & Timely Reporting</span> 
+                                <span className="font-semibold text-sm">Accurate & Timely Reporting</span>
                             </li>
                             <li>
-                                <span className="font-semibold text-sm">Modern Testing Instruments</span> 
+                                <span className="font-semibold text-sm">Modern Testing Instruments</span>
                             </li>
                             <li>
-                                <span className="font-semibold text-sm">Expert & Experienced Team</span> 
+                                <span className="font-semibold text-sm">Expert & Experienced Team</span>
                             </li>
                             <li>
-                                <span className="font-semibold text-sm">Full Regulatory Compliance</span> 
+                                <span className="font-semibold text-sm">Full Regulatory Compliance</span>
                             </li>
                             <li>
-                                <span className="font-semibold text-sm">Client-Centric Approach</span> 
+                                <span className="font-semibold text-sm">Client-Centric Approach</span>
                             </li>
                         </ul>
                         {/* <h2 className="lg:text-xl text-lg font-semibold lg:mt-4 mt-2 ">Why Choose Chairbord?</h2>
