@@ -95,24 +95,24 @@ function Header() {
   let headerClasses;
   let textColor = 'text-white'; // Default text color for black header
   // Use placeholder images for logos since local imports are not supported
-  let currentLogoSrc ;
+  // let currentLogoSrc ;
 
   if (pathname === '/') {
     // Home page logic
     if (isScrolled) {
       headerClasses = 'fixed z-50 bg-black backdrop-blur-md shadow-md';
       textColor = 'text-white';
-      currentLogoSrc = logo // White text on black background for scrolled/black header
+     
     } else {
       headerClasses = ' bg-white shadow-none'; // White header, no shadow initially
       textColor = 'text-gray-800'; // Darker text for white background
-      currentLogoSrc = logo // Black text on white background for initial/white header
+     
     }
   } else {
     // Other pages logic
     headerClasses = 'bg-black shadow-md';
     textColor = 'text-white';
-    currentLogoSrc = logo // White text on black background for other pages
+    
   }
 
   // Handle mouse entering the services dropdown area
