@@ -223,9 +223,7 @@ import React from 'react';
 // import { usePathname, useRouter } from 'next/navigation';
 // import Link from 'next/link';
 // import Image from 'next/image';
-import logo from '../assets/logo.png';
-import Image from 'next/image';
-import { Link } from 'lucide-react';
+// import logo from '../assets/logo.png';
 
 function Header() {
   // Simulate usePathname and useRouter for a generic React environment
@@ -269,7 +267,7 @@ function Header() {
 
   // Placeholder for logo since local imports like '../assets/logo.png' are not resolved
   // in this compilation environment without a specific bundler setup.
-  // const logoSrc = logo;
+  const logoSrc = "https://placehold.co/100x50/000000/FFFFFF?text=LOGO";
 
 
   if (pathname === '/') {
@@ -321,16 +319,16 @@ function Header() {
       <div className="w-full mx-auto px-6 py-4 flex justify-between items-center">
         <div>
           {/* Using a standard <img> tag with a placeholder URL */}
-          <Image
-            src={logo}
+          <img
+            src={logoSrc}
             alt="Logo"
             className="h-[50px] w-[100px]" // Tailwind classes for visual size
           />
         </div>
         <nav className="space-x-10 text-xl font-semibold flex items-center">
           {/* Using standard <a> tags for navigation */}
-          <Link href="/" className={`${textColor} hover:text-[#035096]`}>Home</Link>
-          <Link href="/aboutus" className={`${textColor} hover:text-[#035096]`}>About</Link>
+          <a href="/" className={`${textColor} hover:text-[#035096]`}>Home</a>
+          <a href="/aboutus" className={`${textColor} hover:text-[#035096]`}>About</a>
 
           {/* Services Dropdown */}
           <div
@@ -381,7 +379,7 @@ function Header() {
             )}
           </div>
 
-          <Link href="/contactus" className={`${textColor} hover:text-[#035096]`}>Contact</Link>
+          <a href="/contactus" className={`${textColor} hover:text-[#035096]`}>Contact</a>
         </nav>
       </div>
     </header>
