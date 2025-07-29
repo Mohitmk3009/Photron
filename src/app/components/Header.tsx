@@ -216,6 +216,7 @@
 // export default Header;
 
 'use client';
+import Image from 'next/image';
 import { useEffect, useState, useRef } from 'react';
 import React from 'react';
 
@@ -319,9 +320,11 @@ function Header() {
       <div className="w-full mx-auto px-6 py-4 flex justify-between items-center">
         <div>
           {/* Using a standard <img> tag with a placeholder URL */}
-          <img
+          <Image
             src={logoSrc}
             alt="Logo"
+            width={100}
+            height={50}
             className="h-[50px] w-[100px]" // Tailwind classes for visual size
           />
         </div>
