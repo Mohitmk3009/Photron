@@ -216,29 +216,17 @@
 // export default Header;
 
 'use client';
-import Image from 'next/image';
 import { useEffect, useState, useRef } from 'react';
-import React from 'react';
-
-// Removed Next.js specific imports as they are not resolvable in this environment.
-// import { usePathname, useRouter } from 'next/navigation';
-// import Link from 'next/link';
-// import Image from 'next/image';
-import logo from '../assets/logo.png';
+import { usePathname, useRouter } from 'next/navigation'; // Re-import usePathname and useRouter
 import Link from 'next/link';
+import Image from 'next/image';
+import React from 'react';
+import logo from '../assets/logo.png'; // Assuming logo is correctly located and imported
 
 function Header() {
-  // Simulate usePathname and useRouter for a generic React environment
-  // This will work directly in the browser.
-  const getPathname = () => typeof window !== 'undefined' ? window.location.pathname : '/';
-  const navigateTo = (path: string) => {
-    if (typeof window !== 'undefined') {
-      window.location.href = path; // Direct navigation for simplicity
-    }
-  };
-
-  const pathname = getPathname();
-  const router = { push: navigateTo }; // Mock router for compatibility
+  // Use Next.js hooks for pathname and router, which are safe for client components
+  const pathname = usePathname();
+  const router = useRouter();
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
@@ -247,7 +235,7 @@ function Header() {
   useEffect(() => {
     // This effect runs only on the client-side after component mounts.
     // Therefore, it's safe to access `window` here.
-    if (typeof window !== 'undefined') {
+    if (typeof window !== 'undefined') { // Defensive check for SSR safety
       if (pathname === '/') {
         const onScroll = () => {
           setIsScrolled(window.scrollY > 10);
@@ -266,11 +254,6 @@ function Header() {
   const baseClass = 'w-full top-0 transition-all duration-300';
   let headerClasses;
   let textColor = 'text-white'; // Default text color for black header
-
-  // Placeholder for logo since local imports like '../assets/logo.png' are not resolved
-  // in this compilation environment without a specific bundler setup.
-  // const logoSrc = "https://placehold.co/100x50/000000/FFFFFF?text=LOGO";
-
 
   if (pathname === '/') {
     // Home page logic: header changes based on scroll
@@ -307,7 +290,7 @@ function Header() {
 
   // Handle click on a service item in the dropdown
   const handleServiceClick = (service: string) => {
-    // Use the mock router for navigation
+    // Use Next.js router for navigation
     router.push(`/services?service=${encodeURIComponent(service)}`);
     setIsServicesDropdownOpen(false); // Close dropdown after clicking
     if (dropdownTimeoutRef.current) {
@@ -320,17 +303,17 @@ function Header() {
     <header className={`${baseClass} ${headerClasses}`}>
       <div className="w-full mx-auto px-6 py-4 flex justify-between items-center">
         <div>
-          {/* Using a standard <img> tag with a placeholder URL */}
+          {/* Next.js Image component for optimized images */}
           <Image
             src={logo}
             alt="Logo"
-            width={100}
-            height={50}
+            width={100} // Specify width for Image component
+            height={50} // Specify height for Image component
             className="h-[50px] w-[100px]" // Tailwind classes for visual size
           />
         </div>
         <nav className="space-x-10 text-xl font-semibold flex items-center">
-          {/* Using standard <a> tags for navigation */}
+          {/* Next.js Link component for client-side navigation */}
           <Link href="/" className={`${textColor} hover:text-[#035096]`}>Home</Link>
           <Link href="/aboutus" className={`${textColor} hover:text-[#035096]`}>About</Link>
 
@@ -391,3 +374,4 @@ function Header() {
 }
 
 export default Header;
+
