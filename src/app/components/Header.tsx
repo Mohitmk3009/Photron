@@ -225,6 +225,7 @@ import React from 'react';
 // import Link from 'next/link';
 // import Image from 'next/image';
 import logo from '../assets/logo.png';
+import Link from 'next/link';
 
 function Header() {
   // Simulate usePathname and useRouter for a generic React environment
@@ -330,8 +331,8 @@ function Header() {
         </div>
         <nav className="space-x-10 text-xl font-semibold flex items-center">
           {/* Using standard <a> tags for navigation */}
-          <a href="/" className={`${textColor} hover:text-[#035096]`}>Home</a>
-          <a href="/aboutus" className={`${textColor} hover:text-[#035096]`}>About</a>
+          <Link href="/" className={`${textColor} hover:text-[#035096]`}>Home</Link>
+          <Link href="/aboutus" className={`${textColor} hover:text-[#035096]`}>About</Link>
 
           {/* Services Dropdown */}
           <div
@@ -382,7 +383,7 @@ function Header() {
             )}
           </div>
 
-          <a href="/contactus" className={`${textColor} hover:text-[#035096]`}>Contact</a>
+          <Link href="/contactus" className={`${textColor} hover:text-[#035096]`}>Contact</Link>
         </nav>
       </div>
     </header>
