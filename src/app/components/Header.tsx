@@ -55,6 +55,7 @@ import { useEffect, useState, useRef } from 'react'; // Import useRef
 import React from 'react';
 import logo from '../assets/logo.png'; // Placeholder for logo image
 import Image from 'next/image';
+import Link from 'next/link';
 // Replaced Next.js specific imports with standard browser APIs and img tags
 // Removed:
 // import { usePathname, useRouter } from 'next/navigation';
@@ -94,7 +95,7 @@ function Header() {
   let headerClasses;
   let textColor = 'text-white'; // Default text color for black header
   // Use placeholder images for logos since local imports are not supported
-  let currentLogoSrc =logo;
+  let currentLogoSrc ;
 
   if (pathname === '/') {
     // Home page logic
@@ -153,8 +154,8 @@ function Header() {
         </div>
         <nav className="space-x-10 text-xl font-semibold flex items-center">
           {/* Replaced Next.js Link component with standard a tag */}
-          <a href="/" className={`${textColor} hover:text-gray-300`}>Home</a>
-          <a href="/aboutus" className={`${textColor} hover:text-gray-300`}>About</a>
+          <Link href="/" className={`${textColor} hover:text-gray-300`}>Home</Link>
+          <Link href="/aboutus" className={`${textColor} hover:text-gray-300`}>About</Link>
 
           {/* Services Dropdown */}
           <div
@@ -205,7 +206,7 @@ function Header() {
             )}
           </div>
 
-          <a href="/contactus" className={`${textColor} hover:text-gray-300`}>Contact</a>
+          <Link href="/contactus" className={`${textColor} hover:text-gray-300`}>Contact</Link>
         </nav>
       </div>
     </header>
