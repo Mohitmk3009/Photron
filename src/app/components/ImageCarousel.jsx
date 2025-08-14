@@ -1,49 +1,108 @@
 'use client';
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import b1 from "../assets/bg1.jpg";
 import b2 from "../assets/bg2.jpg";
 import b3 from "../assets/bg3.jpg";
+import b4 from "../assets/1.jpg";
+import b5 from "../assets/5.jpg";
+import b6 from "../assets/bg4.jpg";
 
 const ImageCarousel = () => {
-  const slides = [b1, b2, b3];
+  const slides = [b1, b4, b2, b3, b6, b5];
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const startX = useRef(0);
+  const endX = useRef(0);
 
+  // Auto-slide effect
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
-    }, 3000); // Auto-slide every 3 seconds
+    }, 3000);
     return () => clearInterval(interval);
   }, [slides.length]);
 
+  // Shared swipe handler
+  const handleSwipe = () => {
+    const delta = startX.current - endX.current;
+
+    if (delta > 50) {
+      // Swipe Left
+      setCurrentIndex((prev) => (prev + 1) % slides.length);
+    } else if (delta < -50) {
+      // Swipe Right
+      setCurrentIndex((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+    }
+  };
+
+  // Touch handlers
+  const handleTouchStart = (e) => {
+    startX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e) => {
+    endX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    handleSwipe();
+  };
+
+  // Mouse handlers
+  const handleMouseDown = (e) => {
+    setIsDragging(true);
+    startX.current = e.clientX;
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging) return;
+    endX.current = e.clientX;
+  };
+
+  const handleMouseUp = () => {
+    if (!isDragging) return;
+    setIsDragging(false);
+    handleSwipe();
+  };
+
   return (
-    <div className="relative w-full bg-white h-[600px] overflow-hidden">
-      {/* Slider Container */}
+    <div
+      className="relative w-full bg-white h-[600px] overflow-hidden"
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+      onMouseDown={handleMouseDown}
+      onMouseMove={handleMouseMove}
+      onMouseUp={handleMouseUp}
+      onMouseLeave={() => setIsDragging(false)}
+    >
+      {/* Slider */}
       <div
-        className="flex transition-transform ease-linear duration-1000"
+        className="flex transition-transform ease-linear duration-1000 select-none"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
       >
         {slides.map((slide, index) => (
           <div key={index} className="w-full h-[800px] flex-shrink-0">
             <Image
               src={slide}
-              width={1920}
-              height={1080}
+              width={5000}
+              height={5000}
               alt={`Slide ${index + 1}`}
-              className="w-full h-[800px] object-cover object-center "
+              className="w-full h-[800px] object-cover object-center pointer-events-none"
             />
           </div>
         ))}
       </div>
 
       {/* Navigation Dots */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex py-2 px-3 bg-black/40 rounded-full space-x-2">
         {slides.map((_, index) => (
           <button
             key={index}
             className={`w-3 h-3 rounded-full ${
-              currentIndex === index ? "bg-[#00B4FF]" : "bg-gray-400"
+              currentIndex === index ? "bg-white scale-125" : "bg-gray-400"
             }`}
             onClick={() => setCurrentIndex(index)}
           ></button>
@@ -54,6 +113,104 @@ const ImageCarousel = () => {
 };
 
 export default ImageCarousel;
+
+
+
+// 'use client';
+
+// import React, { useState, useEffect, useRef } from "react";
+// import Image from "next/image";
+// import b1 from "../assets/bg1.jpg";
+// import b2 from "../assets/bg2.jpg";
+// import b3 from "../assets/bg3.jpg";
+// import b4 from "../assets/1.jpg"; 
+// import b5 from "../assets/5.jpg"; 
+// import b6 from "../assets/bg4.jpg"; 
+
+// const ImageCarousel = () => {
+//   const slides = [b1, b4, b2, b3, b6, b5];
+//   const [currentIndex, setCurrentIndex] = useState(0);
+//   const [touchStartX, setTouchStartX] = useState(null);
+//   const carouselRef = useRef(null);
+
+//   useEffect(() => {
+//     const interval = setInterval(() => {
+//       setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
+//     }, 3000); 
+//     return () => clearInterval(interval);
+//   }, [slides.length]);
+
+//   const handleTouchStart = (e) => {
+//     setTouchStartX(e.touches[0].clientX);
+//   };
+
+//   const handleTouchMove = (e) => {
+//     if (!touchStartX) return;
+
+//     const touchEndX = e.touches[0].clientX;
+//     const distance = touchStartX - touchEndX;
+
+//     // A swipe is considered significant if the distance is greater than 50px
+//     if (distance > 50) {
+//       // Swiped left - go to the next slide
+//       const newIndex = (currentIndex + 1) % slides.length;
+//       setCurrentIndex(newIndex);
+//       setTouchStartX(null); // Reset touch start to prevent multiple rapid slides
+//     } else if (distance < -50) {
+//       // Swiped right - go to the previous slide
+//       const newIndex = (currentIndex - 1 + slides.length) % slides.length;
+//       setCurrentIndex(newIndex);
+//       setTouchStartX(null); // Reset touch start
+//     }
+//   };
+  
+//   const handleTouchEnd = () => {
+//     setTouchStartX(null);
+//   };
+
+//   return (
+//     <div 
+//       className="relative w-full bg-white h-[600px] overflow-hidden"
+//       ref={carouselRef}
+//       onTouchStart={handleTouchStart}
+//       onTouchMove={handleTouchMove}
+//       onTouchEnd={handleTouchEnd}
+//     >
+//       {/* Slider Container */}
+//       <div
+//         className="flex transition-transform ease-linear duration-1000"
+//         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+//       >
+//         {slides.map((slide, index) => (
+//           <div key={index} className="w-full h-[800px] flex-shrink-0">
+//             <Image
+//               src={slide}
+//               width={5000}
+//               height={5000}
+//               alt={`Slide ${index + 1}`}
+//               className="w-full h-[800px] object-cover object-center "
+//             />
+//           </div>
+//         ))}
+//       </div>
+
+//       {/* Navigation Dots */}
+//       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+//         {slides.map((_, index) => (
+//           <button
+//             key={index}
+//             className={`w-3 h-3 rounded-full ${
+//               currentIndex === index ? "bg-[#00B4FF]" : "bg-gray-400"
+//             }`}
+//             onClick={() => setCurrentIndex(index)}
+//           ></button>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default ImageCarousel;
 
 
 // 'use client';

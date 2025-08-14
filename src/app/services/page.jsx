@@ -226,27 +226,194 @@
 
 // export default ServicesPage;
 
+// 'use client';
+
+// import React, { Suspense } from 'react';
+// import Header from '../components/Header'; // Adjust path if needed
+// import ServicesContent from '../components/ServicesContent';
+// import backgroundImage from "../assets/contactus.png"; // Ensure the file path is correct
+// import { Fade } from "react-awesome-reveal";
+// import Link from 'next/link';
+
+// export default function ServicesPage() {
+//   // You may also put a Layout wrapper around this
+  
+//   return (
+//     <>
+//       <Header />
+//       <div
+//           className="relative text-white text-center lg:py-20 py-8"
+//           style={{
+//             backgroundImage: `url(${backgroundImage.src})`,
+//             backgroundSize: "cover",
+//             backgroundPosition: "center",
+//           }}
+//         >
+//           {/* Overlay */}
+//           <div className="absolute inset-0 bg-black/50"></div>
+//           <div className="relative z-10">
+//             <Fade direction="up" triggerOnce> {/* Animation for the hero text */}
+//               <h1 className="lg:text-6xl text-3xl font-bold lg:mb-2">We&apos;re here to help.</h1>
+//               {/* <p className="lg:text-lg">Home &gt; Contact Us</p> */}
+//               <nav className="text-white mb-6 text-xl">
+//                 <Link href="/" className="hover:underline">Home</Link> / <span className="font-semibold">About Us</span>
+//               </nav>
+//             </Fade>
+//           </div>
+//         </div>
+//       <div className="min-h-screen bg-gray-100 pt-10 pb-12 px-6">
+        
+//         <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+//           {/* Left 2/3: Services Content */}
+//           <div className="md:col-span-2">
+//             <Suspense fallback={<div>Loading service...</div>}>
+//               <ServicesContent />
+//             </Suspense>
+//           </div>
+//           {/* Right 1/3: Enquiry Form */}
+//           <div className="md:col-span-1 mt-11">
+//             <div className="bg-white p-6 rounded-lg shadow-xl border border-gray-200">
+//               <h3 className="text-2xl font-bold text-center mb-6 text-[#035096]">ENQUIRY FORM</h3>
+//               <form className="space-y-4">
+//                 <div>
+//                   <label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-2">Name *</label>
+//                   <input
+//                     type="text"
+//                     id="name"
+//                     name="name"
+//                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+//                     placeholder="Your Name"
+//                     required
+//                   />
+//                 </div>
+//                 <div>
+//                   <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">Email *</label>
+//                   <input
+//                     type="email"
+//                     id="email"
+//                     name="email"
+//                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+//                     placeholder="your.email@example.com"
+//                     required
+//                   />
+//                 </div>
+//                 <div>
+//                   <label htmlFor="phone" className="block text-gray-700 text-sm font-bold mb-2">Phone *</label>
+//                   <input
+//                     type="tel"
+//                     id="phone"
+//                     name="phone"
+//                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+//                     placeholder="e.g., +91 9876543210"
+//                     required
+//                   />
+//                 </div>
+//                 <div>
+//                   <label htmlFor="message" className="block text-gray-700 text-sm font-bold mb-2">Message</label>
+//                   <textarea
+//                     id="message"
+//                     name="message"
+//                     rows="5"
+//                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent resize-y"
+//                     placeholder="Tell us about your requirements..."
+//                   ></textarea>
+//                 </div>
+//                 <button
+//                   type="submit"
+//                   className="w-full bg-[#035096] text-white font-bold py-3 px-4 rounded focus:outline-none focus:shadow-outline transition duration-200 ease-in-out transform hover:scale-105"
+//                 >
+//                   Submit Enquiry
+//                 </button>
+//               </form>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </>
+//   );
+// }
+
 'use client';
 
-import React, { Suspense } from 'react';
-import Header from '../components/Header'; // Adjust path if needed
-import ServicesContent from '../components/ServicesContent';
+import React, { useEffect, useState, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
+import Link from 'next/link';
+import { Fade } from "react-awesome-reveal";
+import ServicesContent from '../components/ServicesContent'; // Import the new ServicesContent component
+import Header from '../components/Header';
+import backgroundImage from "../assets/contactus.png";
+// This is a placeholder for your Header component.
+// const Header = () => {
+//   return (
+//     <header className="bg-gray-800 text-white p-4">
+//       <nav className="container mx-auto flex justify-between items-center">
+//         <Link href="/" className="text-xl font-bold">
+//           My App
+//         </Link>
+//         <div className="flex space-x-4">
+//           <Link href="/services?service=Water%20Testing" className="hover:text-gray-400">
+//             Water Testing
+//           </Link>
+//           <Link href="/services?service=Environment" className="hover:text-gray-400">
+//             Environment
+//           </Link>
+//           <Link href="/services?service=Pollution%20Control" className="hover:text-gray-400">
+//             Pollution Control
+//           </Link>
+//           <Link href="/services?service=Instrumentation%20Facilities" className="hover:text-gray-400">
+//             Instrumentation Facilities
+//           </Link>
+//         </div>
+//       </nav>
+//     </header>
+//   );
+// };
 
-export default function ServicesPage() {
-  // You may also put a Layout wrapper around this
+// Main page component. Now manages the `selectedService` state and passes it to `ServicesContent`.
+const ServicesPage = () => {
+  const searchParams = useSearchParams();
+  const [selectedService, setSelectedService] = useState('Water Testing'); // Default service
+
+  useEffect(() => {
+    const serviceParam = searchParams.get('service');
+    if (serviceParam) {
+      setSelectedService(decodeURIComponent(serviceParam));
+    }
+  }, [searchParams]);
+
+  // const backgroundImage = {
+  //   src: '../assets/contactus.png', // Ensure the file path is correct  
+  // };
+
   return (
     <>
       <Header />
+      <div
+        className="relative text-white text-center lg:py-20 py-4"
+        style={{
+          backgroundImage: `url(${backgroundImage.src})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="relative z-10">
+          <Fade direction="up" triggerOnce>
+            <h1 className="lg:text-6xl text-3xl font-bold lg:mb-2">Expertise You Can Trust, Results You Can See.</h1>
+            <nav className="text-white mb-6 text-xl">
+              <Link href="/" className="hover:underline">Home</Link> / <span className="font-semibold">{selectedService}</span>
+            </nav>
+          </Fade>
+        </div>
+      </div>
       <div className="min-h-screen bg-gray-100 pt-10 pb-12 px-6">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Left 2/3: Services Content */}
           <div className="md:col-span-2">
             <Suspense fallback={<div>Loading service...</div>}>
-              <ServicesContent />
+              <ServicesContent selectedService={selectedService} />
             </Suspense>
           </div>
-          {/* Right 1/3: Enquiry Form */}
-          <div className="md:col-span-1 mt-11">
+          <div className="md:col-span-1 ">
             <div className="bg-white p-6 rounded-lg shadow-xl border border-gray-200">
               <h3 className="text-2xl font-bold text-center mb-6 text-[#035096]">ENQUIRY FORM</h3>
               <form className="space-y-4">
@@ -306,4 +473,6 @@ export default function ServicesPage() {
       </div>
     </>
   );
-}
+};
+
+export default ServicesPage;

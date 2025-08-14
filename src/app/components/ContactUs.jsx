@@ -396,7 +396,7 @@ const ContactUs = () => {
                             </div>
                         </Fade>
                         <Fade direction="up" triggerOnce delay={500}>
-                            <div className="flex items-center gap-4 lg:mt-[-170px] ">
+                            <div className="flex items-center gap-4 lg:mt-[-140px] ">
                                 <Image
                                     src={timing}
                                     alt="Clock Icon"

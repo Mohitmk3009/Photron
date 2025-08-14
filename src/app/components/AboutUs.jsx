@@ -34,7 +34,7 @@ const AboutUs = () => {
     return (
         <section
             ref={sectionRef}
-            className="bg-gray-50 flex flex-col items-center justify-center lg:py-5 py-10 px-5 mb-[-50px] lg:px-16 "
+            className="bg-gray-50 flex flex-col items-center justify-center lg:py-5 py-10 px-5  lg:px-16 "
         >
             <div className="flex items-center justify-center lg:mb-6 lg:px-6 px-5 lg:w-fit w-full">
                 <div className="flex-grow border-t border-gray-300 h-[1px] w-[150px] "></div>
@@ -157,15 +157,15 @@ const AboutUs = () => {
 
                 {/* Right Section */}
                 <div
-                    className={`bg-white rounded-lg lg:p-8 p-4 max-h-fit shadow-md transition-all duration-700 ease-in-out ${hasAnimated ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                    className={`bg-white rounded-lg lg:p-8 p-4 max-h-[720px] shadow-md transition-all duration-700 ease-in-out ${hasAnimated ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                         }`}
                 >
                     <Image
                         src={about} // Replace with the actual image path
                         alt="Team Working"
-                        width={400}
-                        height={400}
-                        className="rounded-lg h-[60%] object-cover w-full"
+                        width={5000}
+                        height={5000}
+                        className="rounded-lg h-[68%] object-cover w-full"
                     />
                     {/* Statistics Section */}
                     <div className="grid grid-cols-2 mt-4 gap-4">

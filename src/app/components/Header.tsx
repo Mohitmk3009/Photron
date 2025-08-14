@@ -302,7 +302,7 @@ function Header() {
   return (
     <header className={`${baseClass} ${headerClasses}`}>
       <div className="w-full mx-auto px-6 py-4 flex justify-between items-center">
-        <div>
+        <div className="flex items-center space-x-4">
           {/* Next.js Image component for optimized images */}
           <Image
             src={logo}
@@ -311,6 +311,10 @@ function Header() {
             height={50} // Specify height for Image component
             className="h-[50px] w-[100px]" // Tailwind classes for visual size
           />
+          {/* <div className=''>
+          <h1 className="text-xl font-extrabold text-[#E23B3D]">PHOTRON</h1>
+          <h1 className="text-xl font-extrabold text-[#E23B3D]">LABORATARIES</h1>
+             </div> */}
         </div>
         <nav className="space-x-10 text-xl font-semibold flex items-center">
           {/* Next.js Link component for client-side navigation */}

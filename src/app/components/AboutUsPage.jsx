@@ -2,10 +2,11 @@
 "use client"
 import Image from 'next/image';
 import React from 'react';
-import img1 from '@/app/assets/ab1.jpg'
-import img2 from '@/app/assets/ab2.jpg'
-import img3 from '@/app/assets/ab3.jpg'
-
+import img1 from '@/app/assets/1.jpg'
+import img2 from '@/app/assets/ab4.jpg'
+import img3 from '@/app/assets/bg2.jpg'
+import backgroundImage from "../assets/contactus.png"; // Ensure the file path is correct
+import { Fade } from "react-awesome-reveal";
 import Link from 'next/link';
 // You would typically import icons from 'lucide-react' if you were using them.
 // For this example, we'll use simple text or inline SVGs if needed.
@@ -13,20 +14,40 @@ import Link from 'next/link';
 const AboutUsPage = () => {
     return (
         <div className="min-h-screen bg-gray-100 font-inter antialiased">
+
+            <div
+                className="relative text-white text-center lg:py-20 py-8"
+                style={{
+                    backgroundImage: `url(${backgroundImage.src})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                }}
+            >
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-black/50"></div>
+                <div className="relative z-10">
+                    <Fade direction="up" triggerOnce> {/* Animation for the hero text */}
+                        <h1 className="lg:text-6xl text-3xl font-bold lg:mb-2">Our Story, Our Impact</h1>
+                        {/* <p className="lg:text-lg">Home &gt; Contact Us</p> */}
+                        <nav className="text-white mb-6 text-xl">
+                            <Link href="/" className="hover:underline">Home</Link> / <span className="font-semibold">About Us</span>
+                        </nav>
+                    </Fade>
+                </div>
+            </div>
+
             {/* Main Content Area */}
             <main className="container mx-auto px-4 py-8 md:py-12 lg:py-16">
                 {/* Hero Section: Crafting Excellence Together */}
                 <section className="bg-white rounded-lg shadow-md p-6 md:p-10 lg:p-10 mb-8 flex flex-col lg:flex-row items-center lg:items-start gap-8">
                     <div className="lg:w-1/2 flex flex-col justify-center">
 
-                        <nav className="text-gray-600 mb-6 text-sm">
-            <Link href="/" className="hover:underline">Home</Link> / <span className="font-semibold">About Us</span>
-          </nav>
+
                         <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
                             Photron Laboratories
                         </h1>
                         <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-6">
-                            Established in 2022, Photron Laboratories Pvt. Ltd. is an NABL-certified (ISO/IEC 17025) environmental and pollution testing laboratory based in India. Photron Laboratories program ensure customer data meets national as well as international quality standard. We monitor quality through participation in various ILC (Inter Laboratory Comparison) and proficiency testing. Our labs use concept of Total Quality Management System ( TQM ), Which continuously refines laboratory processes based on continuous quality feedback and single window for customer’s query.
+                            Established in 2022, Photron Laboratories Pvt. Ltd. is an NABL-certified (ISO/IEC 17025) environmental and pollution testing laboratory based in India. Photron Laboratories program ensure customer data meets national as well as international quality standard. We monitor quality through participation in various ILC (Inter Laboratory Comparison) and proficiency testing. Our labs use concept of Total Quality Management System ( TQM ), Which continuously refines laboratory processes based on continuous quality feedback and single window for customer’s query. PLPL has dedicated quality assurance department which independently handle customer needs and also provides reliable analysis in the field of testing customer demands.
                         </p>
                         {/* Placeholder for "Discover More" button */}
                         {/* <button className="bg-blue-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-blue-700 transition-colors duration-300 self-start">
@@ -38,9 +59,9 @@ const AboutUsPage = () => {
                         <Image
                             src={img1}
                             alt="Construction Team"
-                            height={500}
-                            width={500}
-                            className="rounded-lg shadow-xl w-full h-auto object-cover"
+                            height={5000}
+                            width={5000}
+                            className="rounded-lg shadow-xl w-full h-[350px] object-cover"
                         //   onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/600x400/CCCCCC/333333?text=Image+Not+Found"; }}
                         />
                     </div>
@@ -49,7 +70,7 @@ const AboutUsPage = () => {
                 {/* Statistics Section */}
                 <section className="bg-white rounded-lg shadow-md p-6 md:p-10 lg:p-10 mb-8">
                     <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-8 text-center lg:text-left">
-                        Photron Laboratories Pvt. Ltd. (PLPL) is a Product / Material Testing Laboratories to identify Chemical, Mechanical and Physical Properties of Product Such as road and soil, water ( waste water, ETP/STP Water, Drinking Water, Construction Water), Environment ( Air, Noise, Lux, Stack ) and Building Construction Material. 
+                        Photron Laboratories Pvt. Ltd. (PLPL) is a Product / Material Testing Laboratories to identify Chemical, Mechanical and Physical Properties of Product Such as road and soil, water ( waste water, ETP/STP Water, Drinking Water, Construction Water), Environment ( Air, Noise, Lux, Stack ) and Building Construction Material.
                     </p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
                         {[
@@ -213,8 +234,8 @@ const AboutUsPage = () => {
                         <Image
                             src={img2}
                             alt="Our History"
-                            height={500}
-                            width={500}
+                            height={5000}
+                            width={5000}
                             className="rounded-lg shadow-xl w-full h-[300px] object-cover"
                         //   onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/600x400/CCCCCC/333333?text=Image+Not+Found"; }}
                         />
@@ -227,8 +248,8 @@ const AboutUsPage = () => {
                         <Image
                             src={img3}
                             alt="Our History"
-                            height={500}
-                            width={500}
+                            height={5000}
+                            width={5000}
                             className="rounded-lg shadow-xl w-full h-[300px] object-cover"
                         //   onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/600x400/CCCCCC/333333?text=Image+Not+Found"; }}
                         />

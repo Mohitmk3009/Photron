@@ -7,7 +7,7 @@ import 'remixicon/fonts/remixicon.css'; // Remix Icon CSS
 
 const Footer = () => {
     return (
-        <footer className="bg-[#28272C] text-white  lg:px-40 px-5">
+        <footer className="bg-[#28272C] text-white  lg:px-32 px-5">
             <div className="w-full lg:flex lg:py-10 pt-10 justify-between ">
                 {/* About Us Section */}
                 <div className="flex flex-col mb-5 lg:mb-0">
@@ -30,7 +30,7 @@ const Footer = () => {
                 <div>
                     <div>
                         <h2 className="lg:text-3xl text-xl font-bold text-[#71AAC8] mb-2 ">QUICK LINKS</h2>
-                        <ul className="gap-2 lg:text-lg  grid-cols-1 grid text-gray-300">
+                        <ul className="gap-2 lg:text-base  grid-cols-1 grid text-gray-300">
                             <Link href="/" className=" outline-none">
                                 Home
                             </Link>
@@ -58,14 +58,14 @@ const Footer = () => {
                 <div className='flex flex-col'>
                     <div>
                         <h2 className="lg:text-3xl text-xl font-bold text-[#71AAC8]  mb-2 mt-4 lg:mt-0 ">ADDRESS</h2>
-                        <p className="lg:text-lg text-gray-300">
+                        <p className="lg:text-base text-gray-300">
                             {/* ChairBord pvt ltd 13, Sapna towar, near Marudhar Mart, Kalwar road, <br /> Govindpura, Jaipur, Rajasthan-302012 */}
                             G-32, Kh. No. 76/14 & Laxmi Park Nangloi, West Delhi-110041, India
                         </p>
                     </div>
                     <div>
                         <h2 className="lg:text-3xl text-xl font-bold text-[#71AAC8] mt-4 mb-2">CONTACT</h2>
-                        <p className="lg:text-lg text-gray-300">
+                        <p className="lg:text-base text-gray-300">
                             Email: photron.labs@gmail.com, vermashivendra70@gmail.com
                             <br />
                             Director : Mr. Chandra Mani Tripathi ( 8851624436, 9312566193)
