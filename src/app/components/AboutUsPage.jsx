@@ -13,7 +13,7 @@ import Link from 'next/link';
 
 const AboutUsPage = () => {
     return (
-        <div className="min-h-screen bg-gray-100 font-inter antialiased">
+        <div className=" bg-gray-100 font-inter antialiased">
 
             <div
                 className="relative text-white text-center lg:py-20 py-8"
@@ -29,7 +29,7 @@ const AboutUsPage = () => {
                     <Fade direction="up" triggerOnce> {/* Animation for the hero text */}
                         <h1 className="lg:text-6xl text-3xl font-bold lg:mb-2">Our Story, Our Impact</h1>
                         {/* <p className="lg:text-lg">Home &gt; Contact Us</p> */}
-                        <nav className="text-white mb-6 text-xl">
+                        <nav className="text-white  lg:text-xl text-base">
                             <Link href="/" className="hover:underline">Home</Link> / <span className="font-semibold">About Us</span>
                         </nav>
                     </Fade>
@@ -37,16 +37,16 @@ const AboutUsPage = () => {
             </div>
 
             {/* Main Content Area */}
-            <main className="container mx-auto px-4 py-8 md:py-12 lg:py-16">
+            <main className="container mx-auto px-5 py-8 md:py-12 lg:py-16">
                 {/* Hero Section: Crafting Excellence Together */}
-                <section className="bg-white rounded-lg shadow-md p-6 md:p-10 lg:p-10 mb-8 flex flex-col lg:flex-row items-center lg:items-start gap-8">
+                <section className="bg-white rounded-lg shadow-md p-4 md:p-10 lg:p-10 mb-8 flex flex-col lg:flex-row items-center lg:items-start lg:gap-8 gap-2">
                     <div className="lg:w-1/2 flex flex-col justify-center">
 
 
-                        <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
+                        <h1 className="text-2xl lg:text-5xl font-extrabold text-gray-900 leading-tight lg:mb-4 mb-2">
                             Photron Laboratories
                         </h1>
-                        <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-6">
+                        <p className="text-sm  text-justify lg:text-lg text-gray-700 leading-relaxed lg:mb-6 mb-2">
                             Established in 2022, Photron Laboratories Pvt. Ltd. is an NABL-certified (ISO/IEC 17025) environmental and pollution testing laboratory based in India. Photron Laboratories program ensure customer data meets national as well as international quality standard. We monitor quality through participation in various ILC (Inter Laboratory Comparison) and proficiency testing. Our labs use concept of Total Quality Management System ( TQM ), Which continuously refines laboratory processes based on continuous quality feedback and single window for customer’s query. PLPL has dedicated quality assurance department which independently handle customer needs and also provides reliable analysis in the field of testing customer demands.
                         </p>
                         {/* Placeholder for "Discover More" button */}
@@ -68,8 +68,8 @@ const AboutUsPage = () => {
                 </section>
 
                 {/* Statistics Section */}
-                <section className="bg-white rounded-lg shadow-md p-6 md:p-10 lg:p-10 mb-8">
-                    <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-8 text-center lg:text-left">
+                <section className="bg-white rounded-lg shadow-md p-4 md:p-10 lg:p-10 mb-8">
+                    <p className="text-sm lg:text-lg  text-gray-700 leading-relaxed lg:mb-8 mb-2 lg:text-left text-justify">
                         Photron Laboratories Pvt. Ltd. (PLPL) is a Product / Material Testing Laboratories to identify Chemical, Mechanical and Physical Properties of Product Such as road and soil, water ( waste water, ETP/STP Water, Drinking Water, Construction Water), Environment ( Air, Noise, Lux, Stack ) and Building Construction Material.
                     </p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
@@ -158,13 +158,13 @@ const AboutUsPage = () => {
             </li>
           </ul>
         </section> */}
-                <section className="bg-white rounded-lg shadow-md p-6 md:p-10 lg:p-10 mb-8 flex flex-col lg:flex-row items-center lg:items-start gap-8">
+                <section className="bg-white rounded-lg shadow-md p-4 md:p-10 lg:p-10 mb-8 flex flex-col lg:flex-row items-center lg:items-start lg:gap-8">
 
                     <div className="lg:w-1/2 flex flex-col justify-center">
-                        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 leading-tight mb-4">
+                        <h2 className="text-2xl md:text-5xl font-bold text-gray-900 leading-tight lg:mb-4 mb-2">
                             Our Vision
                         </h2>
-                        <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-6">
+                        <p className="text-sm md:text-lg text-gray-700 leading-relaxed lg:mb-6 mb-4 text-justify">
                             To be the trusted global leader in data quality assurance, recognized for our unwavering commitment to excellence, innovation in quality management, and a seamless, single-window customer experience that sets the industry benchmark for reliability and satisfaction.
                         </p>
                         {/* <ul className="space-y-3 text-gray-700">
@@ -236,29 +236,29 @@ const AboutUsPage = () => {
                             alt="Our History"
                             height={5000}
                             width={5000}
-                            className="rounded-lg shadow-xl w-full h-[300px] object-cover"
+                            className="rounded-lg lg:shadow-xl w-full lg:h-[300px] object-cover"
                         //   onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/600x400/CCCCCC/333333?text=Image+Not+Found"; }}
                         />
                     </div>
                 </section>
 
                 {/* Our History Section */}
-                <section className="bg-white rounded-lg shadow-md p-6 md:p-10 lg:p-10 mb-8 flex flex-col lg:flex-row items-center lg:items-start gap-8">
+                <section className="bg-white rounded-lg shadow-md p-4 md:p-10 lg:p-10 lg:mb-8  flex flex-col lg:flex-row items-center lg:items-start lg:gap-8 gap-4">
                     <div className="lg:w-1/2 flex justify-center items-center relative">
                         <Image
                             src={img3}
                             alt="Our History"
                             height={5000}
                             width={5000}
-                            className="rounded-lg shadow-xl w-full h-[300px] object-cover"
+                            className="rounded-lg lg:shadow-xl w-full h-[300px] object-cover"
                         //   onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/600x400/CCCCCC/333333?text=Image+Not+Found"; }}
                         />
                     </div>
                     <div className="lg:w-1/2 flex flex-col justify-center">
-                        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 leading-tight mb-4">
+                        <h2 className="text-2xl md:text-5xl font-bold text-gray-900 leading-tight lg:mb-4 mb-2">
                             Our Mission
                         </h2>
-                        <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-6">
+                        <p className="text-sm md:text-lg text-gray-700 leading-relaxed lg:mb-6  text-justify">
                             To ensure the highest quality and reliability of customer data by adhering to stringent national and international quality standards, achieved through continuous monitoring via Inter-Laboratory Comparisons (ILC) and proficiency testing, and upheld by a comprehensive Total Quality Management (TQM) system that prioritizes continuous improvement and responsive customer service.
                         </p>
                         {/* <ul className="space-y-3 text-gray-700">

@@ -92,32 +92,32 @@ export default function FrequentlyAskedQuestions() {
     }, [faqData]); // Re-run effect when faqData changes (though it's static here)
 
     return (
-        <div className=" bg-gradient-to-br from-cyan-50 to-indigo-50 font-inter flex flex-col items-center justify-center py-10 pt-5">
+        <div className=" bg-gradient-to-br from-cyan-50 to-indigo-50 font-inter flex flex-col items-center justify-center lg:py-10 py-5 pb-10 lg:px-0 px-5">
             <div className="flex items-center justify-center lg:mb-6 lg:px-6 px-5 lg:w-fit w-full">
                 <div className="flex-grow border-t border-gray-300 h-[1px] w-[150px] "></div>
-                <h1 className="text-4xl font-extrabold text-gray-900 my-3 mx-4 text-center">Frequently Asked Questions</h1>
+                <h1 className="lg:text-4xl text-2xl font-extrabold whitespace-nowrap text-gray-900  mb-3 mx-4 text-center">FAQs</h1>
                 <div className="flex-grow border-t border-gray-300 h-[1px] w-[150px] "></div>
             </div>
 
-            <div className="max-w-[1600px] w-full bg-white rounded-3xl shadow-xl overflow-hidden py-6 px-12">
+            <div className="lg:max-w-[1600px] mx-5 w-full bg-white rounded-3xl shadow-xl overflow-hidden lg:py-6 py-4 lg:px-12 px-4">
                 {faqData.length === 0 ? (
-                    <p className="text-gray-600 text-lg">No questions found.</p>
+                    <p className="text-gray-600 lg:text-lg text-base">No questions found.</p>
                 ) : (
                     faqData.map(faq => (
                         <div
                             key={faq.id}
                             data-id={faq.id} // Custom data attribute for Intersection Observer
                             className={`
-                  faq-item mb-6 pb-6 border-b border-gray-200 last:border-b-0 last:mb-0 last:pb-0
+                  faq-item lg:mb-6 mb-3 lg:pb-6 pb-2 border-b  border-gray-200 last:border-b-0 last:mb-0 last:pb-0
                   transform transition-all duration-700 ease-out
                   ${visibleQuestions[faq.id] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
                 `}
                         >
                             <div
-                                className="flex justify-between items-center cursor-pointer"
+                                className="flex justify-between items-center  cursor-pointer"
                                 onClick={() => toggleAnswer(faq.id)}
                             >
-                                <h3 className="text-lg font-semibold text-gray-800 pr-4">{faq.question}</h3>
+                                <h3 className="lg:text-lg text-base font-semibold  text-gray-800 pr-4">{faq.question}</h3>
                                 <span className="text-[#035096] text-2xl font-bold">
                                     {openQuestionId === faq.id ? '−' : '+'}
                                 </span>
@@ -128,7 +128,7 @@ export default function FrequentlyAskedQuestions() {
                     ${openQuestionId === faq.id ? 'max-h-screen opacity-100 mt-3' : 'max-h-0 opacity-0'}
                   `}
                             >
-                                <p className="text-gray-600 leading-relaxed pt-2">{faq.answer}</p>
+                                <p className="text-gray-600 lg:text-base text-sm text-justify leading-relaxed py-2">{faq.answer}</p>
                             </div>
                         </div>
                     ))

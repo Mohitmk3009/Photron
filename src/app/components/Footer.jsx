@@ -8,7 +8,7 @@ import 'remixicon/fonts/remixicon.css'; // Remix Icon CSS
 const Footer = () => {
     return (
         <footer className="bg-[#28272C] text-white  lg:px-32 px-5">
-            <div className="w-full lg:flex lg:py-10 pt-10 justify-between ">
+            <div className="w-full lg:flex py-10  justify-between ">
                 {/* About Us Section */}
                 <div className="flex flex-col mb-5 lg:mb-0">
                     <Image

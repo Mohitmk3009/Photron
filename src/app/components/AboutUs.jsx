@@ -34,11 +34,11 @@ const AboutUs = () => {
     return (
         <section
             ref={sectionRef}
-            className="bg-gray-50 flex flex-col items-center justify-center lg:py-5 py-10 px-5  lg:px-16 "
+            className="bg-gray-50 flex flex-col items-center justify-center lg:py-5 py-5 px-5  lg:px-16 "
         >
-            <div className="flex items-center justify-center lg:mb-6 lg:px-6 px-5 lg:w-fit w-full">
+            <div className="flex items-center justify-center lg:mb-6 mb-3 lg:px-6 px-5 lg:w-fit w-full">
                 <div className="flex-grow border-t border-gray-300 h-[1px] w-[150px] "></div>
-                <h1 className="text-4xl font-extrabold text-gray-900 mb-3 mx-4 text-center">About us</h1>
+                <h1 className="lg:text-4xl text-2xl font-extrabold whitespace-nowrap text-gray-900 lg:mb-3 mx-4 text-center">About us</h1>
                 <div className="flex-grow border-t border-gray-300 h-[1px] w-[150px] "></div>
             </div>
             <div className="lg:max-w-[1600px] w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -50,13 +50,13 @@ const AboutUs = () => {
                     <h4 className="text-[#035096] lg:text-2xl text-lg font-semibold lg:mb-3 mb-1">
                         About us
                     </h4>
-                    <h2 className=" text-black lg:text-4xl text-xl text-justify font-bold lg:mb-2 mb-2">
+                    <h2 className=" text-black lg:text-4xl text-2xl   text-justify font-bold lg:mb-2 mb-2">
                         Photron Laboratories Private Limited
                     </h2>
-                    <h2 className=" text-black lg:text-xl text-xl text-justify font-semibold lg:mb-4 mb-2">
+                    <h2 className=" text-black lg:text-xl text-base text-justify font-semibold lg:mb-4 mb-2">
                         Your Trusted Partner in Environmental & Pollution Testing Solutions
                     </h2>
-                    <p className="text-gray-600 text-base text-justify leading-relaxed lg:mb-4 mb-2">
+                    <p className="text-gray-600 lg:text-base text-sm text-justify leading-relaxed lg:mb-4 mb-2">
 
                         Established in 2022, Photron Laboratories Pvt. Ltd. is an NABL-certified (ISO/IEC 17025) environmental and pollution testing laboratory based in India. We are committed to delivering accurate, reliable, and timely analytical testing services to support industries, government agencies, and institutions in meeting environmental compliance and sustainability goals.
                         <br />
@@ -65,9 +65,9 @@ const AboutUs = () => {
                     </p>
 
                     <section id="section5" className="text-black lg:text-base text-sm">
-                        <h2 className="lg:text-2xl text-lg  font-bold mb-2">Our Vision</h2>
-                        <span className="text-base " >To be the trusted global leader in data quality assurance, recognized for our unwavering commitment to excellence, innovation in quality management, and a seamless, single-window customer experience that sets the industry benchmark for reliability and satisfaction.
-                        </span>
+                        <h2 className="lg:text-2xl text-xl  font-bold mb-2">Our Vision</h2>
+                        <p className="lg:text-base text-sm text-justify" >To be the trusted global leader in data quality assurance, recognized for our unwavering commitment to excellence, innovation in quality management, and a seamless, single-window customer experience that sets the industry benchmark for reliability and satisfaction.
+                        </p>
                         {/* <ul className="list-disc pl-6 mt-2 space-y-1">
 
                             <li>
@@ -86,9 +86,9 @@ const AboutUs = () => {
                                 <span className="font-semibold text-sm">Soil & Sediment Testing</span>
                             </li>
                         </ul> */}
-                        <h2 className="lg:text-2xl text-lg  font-bold lg:mt-4 mt-2 mb-2 ">Our Mission</h2>
-                        <span className="text-base " >To ensure the highest quality and reliability of customer data by adhering to stringent national and international quality standards, achieved through continuous monitoring via Inter-Laboratory Comparisons (ILC) and proficiency testing, and upheld by a comprehensive Total Quality Management (TQM) system that prioritizes continuous improvement and responsive customer service.
-                        </span>
+                        <h2 className="lg:text-2xl text-xl  font-bold lg:mt-4 mt-2 mb-2 ">Our Mission</h2>
+                        <p className="lg:text-base text-sm text-justify" >To ensure the highest quality and reliability of customer data by adhering to stringent national and international quality standards, achieved through continuous monitoring via Inter-Laboratory Comparisons (ILC) and proficiency testing, and upheld by a comprehensive Total Quality Management (TQM) system that prioritizes continuous improvement and responsive customer service.
+                        </p>
                         {/* <ul className="list-disc pl-6 mt-2 space-y-1">
 
                             <li>
@@ -127,7 +127,7 @@ const AboutUs = () => {
                             </li>
                         </ul> */}
                     </section>
-                    <p className="text-gray-600 mt-4 lg:text-base text-sm leading-relaxed  ">
+                    <p className="text-gray-600 mt-4 lg:text-base text-sm text-justify leading-relaxed  ">
 
                         For inquiries, partnerships, or service requests, feel free to contact us — we&apos;re here to help you stay compliant and environmentally responsible.
 
@@ -157,7 +157,7 @@ const AboutUs = () => {
 
                 {/* Right Section */}
                 <div
-                    className={`bg-white rounded-lg lg:p-8 p-4 max-h-[720px] shadow-md transition-all duration-700 ease-in-out ${hasAnimated ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                    className={`bg-white rounded-lg lg:p-8 p-4 lg:h-[720px] h-fit shadow-md transition-all duration-700 ease-in-out ${hasAnimated ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                         }`}
                 >
                     <Image

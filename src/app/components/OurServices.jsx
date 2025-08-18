@@ -74,16 +74,16 @@ const ServiceCard = ({ icon: Icon, title, description, iconColor, bgColor }) => 
 // Main App component containing the Our Services section
 const OurServices = () => {
     return (
-        <div className=" bg-gradient-to-br from-cyan-50 to-indigo-50 flex flex-col items-center justify-center py-10 pt-5 px-4 sm:px-6 lg:px-8 font-sans">
+        <div className=" bg-gradient-to-br from-cyan-50 to-indigo-50 flex flex-col items-center justify-center py-10 pt-5 px-5 lg:px-8 font-sans">
             {/* Section header */}
-            <div className="flex items-center justify-center lg:mb-6 lg:px-6 px-5 lg:w-fit w-full">
+            <div className="flex items-center justify-center lg:mb-6 mb-3 lg:px-6 px-5 lg:w-fit w-full">
                 <div className="flex-grow border-t border-gray-300 h-[1px] w-[150px] "></div>
-                <h1 className="text-4xl font-extrabold text-gray-900 mb-3 mx-4 text-center">Our Services</h1>
+                <h1 className="lg:text-4xl text-2xl font-extrabold whitespace-nowrap text-gray-900 lg:mb-3 mx-4 text-center">Our Services</h1>
                 <div className="flex-grow border-t border-gray-300 h-[1px] w-[150px] "></div>
             </div>
 
             {/* Services grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mx-24 ">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:gap-10 gap-5 lg:mx-24 ">
                 {/* Individual ServiceCard components with different icons */}
                 <ServiceCard
                     icon={Droplet}

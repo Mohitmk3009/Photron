@@ -1154,15 +1154,15 @@ const TeamMembers = () => {
 
   return (
     <div className=" bg-white font-inter py-10 pt-5 px-4 sm:px-6 lg:px-8 flex flex-col items-center">
-      <div className="flex items-center justify-center lg:mb-6 lg:px-6 px-5 lg:w-fit w-full">
+      <div className="flex items-center justify-center lg:mb-6 mb-3 lg:px-6 px-5 lg:w-fit w-full">
                     <div className="flex-grow border-t border-gray-300 h-[1px] w-[150px] "></div>
-                    <h1 className="text-4xl font-extrabold text-gray-900 mb-3 mx-4 text-center">Meet our Team</h1>
+                    <h1 className="lg:text-4xl text-2xl font-extrabold whitespace-nowrap text-gray-900 lg:mb-3 mx-4 text-center">Meet our Team</h1>
                     <div className="flex-grow border-t border-gray-300 h-[1px] w-[150px] "></div>
                 </div>
 
       <div
         ref={teamRef}
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto w-full"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:max-w-7xl lg:mx-auto mx-5 w-full"
       >
         {teamMembers.map((member) => (
           <div
@@ -1177,7 +1177,7 @@ const TeamMembers = () => {
           >
             {member.image ? (
               <>
-                <div className="relative w-full h-48 sm:h-56 lg:h-64 overflow-hidden ">
+                <div className="relative w-full h-80 lg:h-64 overflow-hidden ">
                   <Image
                     src={member.image}
                     alt={member.name}
@@ -1190,10 +1190,10 @@ const TeamMembers = () => {
                   {/* Flow effect on hover */}
                   <div className="absolute inset-0  opacity-0 group-hover:opacity-100  transition-opacity duration-300 rounded-t-xl"></div>
                 </div>
-                <div className="p-6">
+                <div className="lg:p-4 p-3">
                   <h3 className="text-xl font-semibold text-gray-900 mb-1">{member.name}</h3>
-                  <p className="text-sm text-blue-600 font-medium mb-3">{member.title}</p>
-                  <p className="text-gray-600 text-sm leading-relaxed">{member.description}</p>
+                  <p className="text-sm text-blue-600 font-medium mb-1">{member.title}</p>
+                  {/* <p className="text-gray-600 text-sm leading-relaxed">{member.description}</p> */}
                 </div>
               </>
             ) : (

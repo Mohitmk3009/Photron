@@ -69,7 +69,7 @@ const ImageCarousel = () => {
 
   return (
     <div
-      className="relative w-full bg-white h-[600px] overflow-hidden"
+      className="relative w-full bg-white lg:h-[600px] h-[180px] overflow-hidden"
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
@@ -84,25 +84,25 @@ const ImageCarousel = () => {
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
       >
         {slides.map((slide, index) => (
-          <div key={index} className="w-full h-[800px] flex-shrink-0">
+          <div key={index} className="w-full lg:h-[600px] h-[180px] flex-shrink-0">
             <Image
               src={slide}
               width={5000}
               height={5000}
               alt={`Slide ${index + 1}`}
-              className="w-full h-[800px] object-cover object-center pointer-events-none"
+              className="w-full lg:h-[600px] h-[180px] object-cover object-center pointer-events-none"
             />
           </div>
         ))}
       </div>
 
       {/* Navigation Dots */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex py-2 px-3 bg-black/40 rounded-full space-x-2">
+      <div className="absolute lg:bottom-4 bottom-2 left-1/2 transform -translate-x-1/2 flex py-2 lg:px-3 px-2 bg-black/40 rounded-full space-x-2">
         {slides.map((_, index) => (
           <button
             key={index}
-            className={`w-3 h-3 rounded-full ${
-              currentIndex === index ? "bg-white scale-125" : "bg-gray-400"
+            className={`lg:w-3 lg:h-3 w-2 h-2 rounded-full ${
+              currentIndex === index ? "bg-white lg:scale-125 scale-150" : "bg-gray-400"
             }`}
             onClick={() => setCurrentIndex(index)}
           ></button>
