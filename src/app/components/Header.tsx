@@ -286,7 +286,7 @@ function Header() {
     <header className={`${baseClass} ${headerClasses} sticky top-0 z-50`}>
       <div className="w-full mx-auto lg:px-6 lg:py-4 px-4 py-2 flex justify-between items-center">
         {/* Logo */}
-        <div className="flex items-center space-x-4">
+        <Link  href="/" className="flex items-center space-x-4">
           <Image
             src={logo}
             alt="Logo"
@@ -294,7 +294,7 @@ function Header() {
             height={50}
             className="lg:h-[50px] lg:w-[100px] h-[40px] w-[80px]"
           />
-        </div>
+        </Link>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex space-x-10 text-lg font-semibold items-center">
