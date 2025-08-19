@@ -38,16 +38,16 @@ export default function OurClients() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 1 }}
-      className="bg-gradient-to-br from-cyan-50 to-indigo-50 py-5  lg:py-16 flex flex-col items-center justify-center font-sans"
+      className="bg-gradient-to-br from-cyan-50 to-indigo-50 py-5  lg:py-14 flex flex-col items-center justify-center font-sans"
     >
-      <div className="flex items-center justify-center lg:mb-3 mb-1 lg:px-6 px-10 lg:w-fit w-full  lg:mt-[-40px]">
+      <div className="flex items-center justify-center lg:mb-3 mb-1 lg:px-6 px-10 lg:w-fit w-full  lg:mt-[-30px]">
                 <div className="flex-grow border-t border-gray-300 h-[1px] w-[150px] "></div>
                 <h1 className="lg:text-4xl text-2xl font-extrabold whitespace-nowrap text-gray-900 lg:mb-3 mx-4 text-center">Our Clients</h1>
                 <div className="flex-grow border-t border-gray-300 h-[1px] w-[150px] "></div>
             </div>
       <div className="lg:mx-auto lg:max-w-[1400px] max-w-[380px] px-0 lg:px-8">
         <div className="text-center">
-          <h2 className="lg:text-3xl text-xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          <h2 className="lg:text-3xl text-xl font-bold tracking-tight text-gray-900 ">
             Trusted by the world's best companies
           </h2>
           <p className="mt-1 lg:text-lg text-sm leading-8 text-center text-gray-600">
@@ -56,17 +56,17 @@ export default function OurClients() {
         </div>
 
         {/* Continuous Logo Scroller */}
-        <div className="lg:mt-16 mt-4 relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]">
+        <div className="lg:mt-14 mt-4 relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]">
           
           <div className="flex animate-marquee">
             {[...logos, ...logos].map((logo, index) => (
               <div
                 key={`${logo.id}-${index}`}
-                className="flex-shrink-0 mx-4 lg:mx-10 flex items-center justify-center"
+                className="flex-shrink-0 mx-2 lg:mx-10  flex items-center justify-center"
                 style={{ width: '160px' }}
               >
                 <Image
-                  className="w-full object-contain lg:h-[120px] h-[70px] hover:scale-110 transition-transform duration-200"
+                  className="w-full object-contain  lg:h-[120px] h-[60px] hover:scale-105 transition-transform duration-200"
                   src={logo.src}
                   alt={logo.alt}
                   height={80}
@@ -87,7 +87,7 @@ export default function OurClients() {
         .animate-marquee {
           display: flex;
           width: max-content;
-          animation: marquee 15s linear infinite; /* adjust speed here */
+          animation: marquee 20s linear infinite; /* adjust speed here */
         }
       `}</style>
     </motion.div>
