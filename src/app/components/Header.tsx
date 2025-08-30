@@ -286,7 +286,7 @@ function Header() {
     <header className={`${baseClass} ${headerClasses} sticky top-0 z-50`}>
       <div className="w-full mx-auto lg:px-6 lg:py-4 px-4 py-2 flex justify-between items-center">
         {/* Logo */}
-        <Link  href="/" className="flex items-center space-x-4">
+        <Link href="/" className="flex items-center space-x-4">
           <Image
             src={logo}
             alt="Logo"
@@ -380,9 +380,9 @@ function Header() {
               </div>
             )} */}
             {isServicesDropdownOpen && (
-              <div className="absolute left-0 -translate-x-1/2 mt-8 ml-[-180px] w-[780px] bg-white rounded-md shadow-lg z-10 animate-fade-in-down">
+              <div className="absolute left-0 -translate-x-1/2 mt-8 ml-[-310px] w-[1040px] bg-white rounded-md shadow-lg z-10 animate-fade-in-down">
                 <div className="max-w-fit  p-5">
-                  <div className="grid grid-cols-3 gap-x-10 gap-y-6">
+                  <div className="grid grid-cols-4 gap-x-10 gap-y-6">
                     {/* Column 1: Water Testing */}
                     <div className="space-y-2">
                       <button onClick={() => handleServiceClick('Water Testing')} className="font-semibold text-gray-800 bg-gray-100 px-4 py-2 rounded-md w-full text-left text-sm hover:bg-gray-200">Water Testing</button>
@@ -445,7 +445,13 @@ function Header() {
                     </div>
 
                     {/* Column 4: Other Categories */}
-
+                    <div className="space-y-2">
+                      <button onClick={() => handleServiceClick('Instrumentation Facilities')} className="font-semibold text-gray-800 bg-gray-100 px-4 py-2 rounded-md w-full text-left text-sm hover:bg-gray-200">Solid waste management</button>
+                      <ul className="space-y-2 text-xs ml-2 text-gray-600">
+                        <li className="hover:text-blue-600 whitespace-nowrap">Municipal Solid Waste</li>
+                        <li className="hover:text-blue-600">Bio Mask</li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>

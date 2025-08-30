@@ -1019,12 +1019,31 @@
 import React, { useEffect, useRef, useState } from 'react';
 import m1 from '../assets/m1full.jpg';
 import m2 from '../assets/m2full.jpg';
+import m3 from '../assets/m3full.jpg';
+import m4 from '../assets/m4full.jpg';
+
 import Image from "next/image";
 
 // Team member data
 const teamMembers = [
   {
     id: 1,
+    name: 'Chandramani Tripathi',
+    title: 'CEO',
+    // description: 'Former co-founder of Opendoor. Early staff at Spotify and Clearbit.',
+    // For local images, place them in your Next.js public directory (e.g., public/images/sienna.jpg)
+    // and reference them like this: '/images/sienna.jpg'
+    image: m3 // Example local image path
+  },
+  {
+    id: 2,
+    name: 'Shivendra Verma',
+    title: 'CEO',
+    // description: 'Lead engineering teams at Netflix, Pitch, and Protocol Labs',
+    image: m4// Example local image path
+  },
+  {
+    id: 3,
     name: 'Santosh Tiwari',
     title: 'General Manager ',
     // description: 'Former co-founder of Opendoor. Early staff at Spotify and Clearbit.',
@@ -1033,28 +1052,12 @@ const teamMembers = [
     image: m1 // Example local image path
   },
   {
-    id: 2,
+    id: 4,
     name: 'Rahul kumar',
     title: 'Technical Manager',
     // description: 'Lead engineering teams at Netflix, Pitch, and Protocol Labs',
     image: m2 // Example local image path
   },
-  // {
-  //   id: 1,
-  //   name: 'Sienna Hewitt',
-  //   title: 'Founder & CEO',
-  //   description: 'Former co-founder of Opendoor. Early staff at Spotify and Clearbit.',
-  //   // For local images, place them in your Next.js public directory (e.g., public/images/sienna.jpg)
-  //   // and reference them like this: '/images/sienna.jpg'
-  //   image: m1 // Example local image path
-  // },
-  // {
-  //   id: 2,
-  //   name: 'Ashwin Santiago',
-  //   title: 'Engineering Manager',
-  //   description: 'Lead engineering teams at Netflix, Pitch, and Protocol Labs',
-  //   image: m2 // Example local image path
-  // },
   // {
   //   id: 1,
   //   name: 'Sienna Hewitt',
