@@ -66,13 +66,9 @@ const Footer = () => {
                     <div>
                         <h2 className="lg:text-3xl text-xl font-bold text-[#71AAC8] mt-4 mb-2">CONTACT</h2>
                         <p className="lg:text-base text-gray-300">
-                            Email: photron.labs@gmail.com, vermashivendra70@gmail.com
+                            Email: photron.labs@gmail.com
                             <br />
-                            Director : Mr. Chandra Mani Tripathi ( 8851624436, 9312566193)
-                            <br />
-                            Director : Mr. Shivendra Verma ( 9818282411 )
-                            <br />
-                            Technical Support : Mr. Rahul Kumar ( 9821711675 )
+                            Technical Support : +91-9312566193, +91-9818282411
                         </p>
                     </div>
                 </div>

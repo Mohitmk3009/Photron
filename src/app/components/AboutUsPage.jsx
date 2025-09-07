@@ -72,12 +72,12 @@ const AboutUsPage = () => {
                     <p className="text-sm lg:text-lg  text-gray-700 leading-relaxed lg:mb-8 mb-2 lg:text-left text-justify">
                         Photron Laboratories Pvt. Ltd. (PLPL) is a Product / Material Testing Laboratories to identify Chemical, Mechanical and Physical Properties of Product Such as road and soil, water ( waste water, ETP/STP Water, Drinking Water, Construction Water), Environment ( Air, Noise, Lux, Stack ) and Building Construction Material.
                     </p>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-center">
                         {[
-                            { value: '150+', label: 'Complete Projects' },
-                            { value: '100+', label: 'Team Members' },
-                            { value: '200+', label: 'Client Reviews' },
-                            { value: '30', label: 'Winning Award' },
+                            { value: '50+', label: 'Large Scale Projects' },
+                            { value: '30+', label: 'Team Members' },
+                            { value: '2000+', label: 'Client Reviews' },
+                            // { value: '30', label: 'Winning Award' },
                         ].map((stat, index) => (
                             <div key={index} className="p-4 bg-blue-50 rounded-lg shadow-sm">
                                 <p className="text-3xl md:text-4xl font-bold text-blue-700 mb-2">

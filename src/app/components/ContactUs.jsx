@@ -156,7 +156,7 @@ const ContactUs = () => {
                                 />
                                 <div className="lg:mt-7 mt-5">
                                     <p className="font-semibold lg:text-xl text-lg text-black">Call the helpline</p>
-                                    <p className="text-gray-600 lg:text-lg text-sm">+91-9821711675</p>
+                                    <p className="text-gray-600 lg:text-lg text-sm">+91-9821144193</p>
                                 </div>
                             </div>
                         </div>

@@ -1017,8 +1017,8 @@
 
 'use client'
 import React, { useEffect, useRef, useState } from 'react';
-import m1 from '../assets/m1full.jpg';
-import m2 from '../assets/m2full.jpg';
+import m1 from '../assets/m1.jpg';
+import m2 from '../assets/m2.jpg';
 import m3 from '../assets/m3full.jpg';
 import m4 from '../assets/m4full.jpg';
 

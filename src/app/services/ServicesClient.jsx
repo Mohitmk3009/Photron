@@ -106,7 +106,7 @@ export default function ServicesClient() {
                     id="phone"
                     name="phone"
                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
-                    placeholder="e.g., +91 9876543210"
+                    placeholder="e.g., +91 9821144193"
                     required
                   />
                 </div>
