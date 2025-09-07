@@ -76,7 +76,7 @@ const AboutUsPage = () => {
                         {[
                             { value: '50+', label: 'Large Scale Projects' },
                             { value: '30+', label: 'Team Members' },
-                            { value: '2000+', label: 'Client Reviews' },
+                            { value: '5000+', label: 'Client Reviews' },
                             // { value: '30', label: 'Winning Award' },
                         ].map((stat, index) => (
                             <div key={index} className="p-4 bg-blue-50 rounded-lg shadow-sm">

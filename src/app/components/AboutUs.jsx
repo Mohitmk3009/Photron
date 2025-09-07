@@ -170,8 +170,8 @@ const AboutUs = () => {
                     {/* Statistics Section */}
                     <div className="grid grid-cols-2 mt-4 gap-4">
                         {[
-                            { value: "100+", label: "Return Clients" },
-                            { value: "12+", label: "Trusted Clients" },
+                            { value: "75+", label: "Return Clients" },
+                            { value: "100+", label: "Trusted Clients" },
                             { value: "10000+", label: "Positive Reviews" },
                             { value: "10+", label: "Industries we serve" },
                         ].map((item, index) => (
