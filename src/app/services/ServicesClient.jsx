@@ -105,7 +105,7 @@ export default function ServicesClient() {
                   <label htmlFor="message" className="block text-gray-700 text-sm font-bold mb-2">Message</label>
                   <textarea id="message" name="message" value={formData.message} onChange={handleInputChange} rows="5" className="shadow appearance-none border rounded w-full py-2 px-3 resize-y" placeholder="Tell us about your requirements..."></textarea>
                 </div>
-                <button type="submit" disabled={loading} className="w-full bg-[#035096] text-white font-bold py-3 px-4 rounded-lg transition hover:scale-105 disabled:bg-gray-400 disabled:scale-100">
+                <button type="submit" disabled={loading} className="w-full bg-[#035096] cursor-pointer text-white font-bold py-3 px-4 rounded-lg transition hover:scale-105 disabled:bg-gray-400 disabled:scale-100">
                   {loading ? 'Submitting...' : 'Submit Enquiry'}
                 </button>
               </form>

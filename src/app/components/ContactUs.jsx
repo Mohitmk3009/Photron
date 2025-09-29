@@ -248,7 +248,7 @@ const ContactUs = () => {
                                 <button
                                     type="submit"
                                     disabled={loading}
-                                    className="w-full bg-[#035096] text-white py-2 rounded-lg font-semibold"
+                                    className="w-full bg-[#035096] text-white py-2 cursor-pointer rounded-lg font-semibold"
                                 >
                                     {loading ? 'Submitting...' : 'Submit'}
                                 </button>
