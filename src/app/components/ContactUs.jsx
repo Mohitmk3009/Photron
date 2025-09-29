@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { usePathname } from 'next/navigation';
 import Image from "next/image";
+import emailjs from '@emailjs/browser';
 import phone from "../assets/phone-call.png";
 import email from "../assets/email.png";
 import location from "../assets/location.png";
@@ -14,95 +15,76 @@ import Link from "next/link";
 
 
 const ContactUs = () => {
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        number: '',
-        notice: ''
-    });
+    const [formData, setFormData] = useState({ name: '', email: '', number: '', notice: '' });
     const [isChecked, setIsChecked] = useState(false);
-    const [selectedValue, setSelectedValue] = useState(`Chairbord's Executive will contact you soon !!`);
     const [loading, setLoading] = useState(false);
     const pathname = usePathname();
-
-    // State to manage visibility for scroll animation
     const [visibleElements, setVisibleElements] = useState({});
-
-    // Ref to hold the Intersection Observer instance
     const observer = useRef(null);
 
-    // Effect for scroll animation (Intersection Observer)
     useEffect(() => {
-        // Create a new Intersection Observer instance
-        observer.current = new IntersectionObserver(
-            (entries) => {
-                entries.forEach(entry => {
-                    // If the element is intersecting (in view), set its visibility to true
-                    if (entry.isIntersecting) {
-                        setVisibleElements(prev => ({ ...prev, [entry.target.dataset.id]: true }));
-                        // Unobserve the element once it's visible to prevent re-triggering
-                        observer.current.unobserve(entry.target);
-                    }
-                });
-            },
-            {
-                root: null, // Use the viewport as the root
-                rootMargin: '0px', // No margin
-                threshold: 0.1, // Trigger when 10% of the item is visible
-            }
-        );
-
-        // Observe each element with the "animate-on-scroll" class
-        document.querySelectorAll('.animate-on-scroll').forEach(item => {
-            observer.current.observe(item);
-        });
-
-        // Cleanup function: disconnect the observer when the component unmounts
-        return () => {
-            if (observer.current) {
-                observer.current.disconnect();
-            }
-        };
+        observer.current = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setVisibleElements(prev => ({ ...prev, [entry.target.dataset.id]: true }));
+                    observer.current.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.animate-on-scroll').forEach(item => observer.current.observe(item));
+        return () => observer.current?.disconnect();
     }, []);
 
     const handleSubmit = async (e) => {
-        console.log("submitting form...", formData);
         e.preventDefault();
-
         if (!isChecked) {
             toast.error("Please accept the terms and conditions!");
             return;
         }
-        const submitLoader = toast.loading("Submitting form...");
+        
         setLoading(true);
+        const submitLoader = toast.loading("Submitting form...");
+
+        // **Standardize the data for the unified template**
+        const templateParams = {
+            name: formData.name,
+            email: formData.email,
+            phone: formData.number,      // Renamed 'number' to 'phone'
+            message: formData.notice,    // Renamed 'notice' to 'message'
+            service_name: 'General Inquiry', // Added a default service name
+        };
 
         try {
-            await new Promise(resolve => setTimeout(resolve, 1500)); // Simulate network delay
-            toast.success("Application sent successfully!");
+            await Promise.all([
+                emailjs.send(
+                    process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+                    process.env.NEXT_PUBLIC_UNIFIED_ADMIN_TEMPLATE_ID, // Use unified ID
+                    templateParams,
+                    process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+                ),
+                emailjs.send(
+                    process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+                    process.env.NEXT_PUBLIC_UNIFIED_USER_TEMPLATE_ID,  // Use unified ID
+                    templateParams,
+                    process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+                )
+            ]);
 
-            setFormData({
-                name: '',
-                email: '',
-                number: '',
-                notice: ''
-            });
+            toast.success("Message sent successfully!");
+            setFormData({ name: '', email: '', number: '', notice: '' });
             setIsChecked(false);
-            setSelectedValue(`Photron's Executive will contact you soon !!`);
+
         } catch (error) {
             console.error("Error submitting form:", error);
-            toast.error("Error submitting form. Please try again.");
+            toast.error("Failed to send message. Please try again.");
         } finally {
             toast.dismiss(submitLoader);
             setLoading(false);
         }
     };
-
+    
     const animatedClass = (id, delay = 0) =>
-        `
-        animate-on-scroll transition-all duration-700 ease-out
-        ${visibleElements[id] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
-        ${delay > 0 ? `[transition-delay:${delay}ms]` : ''}
-    `.replace(/\s+/g, ' ').trim();
+        `animate-on-scroll transition-all duration-700 ease-out ${visibleElements[id] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} ${delay > 0 ? `[transition-delay:${delay}ms]` : ''}`.trim();
 
     return (
         <div className="bg-gray-100 font-inter antialiased">
@@ -213,7 +195,7 @@ const ContactUs = () => {
                                         placeholder="Enter your name"
                                         value={formData.name}
                                         onChange={(e) =>
-                                            setFormData((prev) => ({ ...prev, name: e.target.value }))
+                                            setFormData((p) => ({ ...p, name: e.target.value }))
                                         }
                                         required={true}
                                         className="col-span-1 border-[.5px] border-gray-500 focus:border-black rounded-lg px-4 py-2 w-full text-gray-700"
@@ -223,7 +205,7 @@ const ContactUs = () => {
                                         placeholder="Enter Email"
                                         value={formData.email}
                                         onChange={(e) =>
-                                            setFormData((prev) => ({ ...prev, email: e.target.value }))
+                                            setFormData((p) => ({ ...p, email: e.target.value }))
                                         }
                                         required={true}
                                         className="col-span-1 border-[.5px] border-gray-500 focus:border-black rounded-lg px-4 py-2 w-full text-gray-700"
@@ -234,7 +216,7 @@ const ContactUs = () => {
                                     placeholder="Enter Mobile Number"
                                     value={formData.number}
                                     onChange={(e) =>
-                                        setFormData((prev) => ({ ...prev, number: e.target.value }))
+                                        setFormData((p) => ({ ...p, number: e.target.value }))
                                     }
                                     required={true}
                                     className="col-span-1 border-[.5px] mb-4 border-gray-500 focus:border-black rounded-lg px-4 py-2 w-full text-gray-700"
@@ -242,7 +224,7 @@ const ContactUs = () => {
                                 <textarea
                                     placeholder="Your message..."
                                     value={formData.notice}
-                                    onChange={(e) => setFormData({ ...formData, notice: e.target.value })}
+                                    onChange={(e) => setFormData(p => ({ ...p, notice: e.target.value }))}
                                     className="border-[.5px] border-gray-500 focus:border-black rounded-lg px-4 py-2 w-full mb-4 text-gray-700"
                                     rows="4"
                                     required={true}
