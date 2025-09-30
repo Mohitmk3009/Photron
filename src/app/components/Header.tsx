@@ -385,7 +385,7 @@ function Header() {
                   <div className="grid grid-cols-4 gap-x-10 gap-y-6">
                     {/* Column 1: Water Testing */}
                     <div className="space-y-2">
-                      <button onClick={() => handleServiceClick('Water Testing')} className="font-semibold text-gray-800 bg-gray-100 px-4 py-2 rounded-md w-full text-left text-sm hover:bg-gray-200">Water Testing</button>
+                      <button onClick={() => handleServiceClick('Water Testing')} className="font-semibold text-gray-800 bg-gray-100 px-4 py-2 rounded-md w-full cursor-pointer text-left text-sm hover:bg-gray-200">Water Testing</button>
                       <ul className="space-y-2 text-xs ml-2 text-gray-600">
                         <li className="hover:text-blue-600">RO Water</li>
                         <li className="hover:text-blue-600">Swimming Pool Water</li>
@@ -404,7 +404,7 @@ function Header() {
 
                     {/* Column 2: Environment & Pollution */}
                     <div className="space-y-2">
-                      <button onClick={() => handleServiceClick('Environment')} className="font-semibold text-gray-800 bg-gray-100 px-4 py-2 rounded-md w-full text-left text-sm hover:bg-gray-200">Environment</button>
+                      <button onClick={() => handleServiceClick('Environment')} className="font-semibold text-gray-800 bg-gray-100 px-4 py-2 cursor-pointer rounded-md w-full text-left text-sm hover:bg-gray-200">Environment</button>
                       <ul className="space-y-2 text-xs ml-2 text-gray-600">
                         <li className="hover:text-blue-600">Air Quality Check</li>
                         <li className="hover:text-blue-600">Treated Water Testing</li>
@@ -413,7 +413,7 @@ function Header() {
                         <li className="hover:text-blue-600">Soil Testing</li>
                         <li className="hover:text-blue-600">Water Analysis</li>
                       </ul>
-                      <button onClick={() => handleServiceClick('Pollution Control')} className="font-semibold text-gray-800 bg-gray-100 px-4 py-2 rounded-md w-full text-left text-sm hover:bg-gray-200 mt-4">Pollution Control</button>
+                      <button onClick={() => handleServiceClick('Pollution Control')} className="font-semibold text-gray-800 bg-gray-100 px-4 py-2 cursor-pointer rounded-md w-full text-left text-sm hover:bg-gray-200 mt-4">Pollution Control</button>
                       <ul className="space-y-2 text-xs ml-2 text-gray-600">
                         <li className="hover:text-blue-600">Air Pollution Testing</li>
                         <li className="hover:text-blue-600">Water Pollution Testing</li>
@@ -425,7 +425,7 @@ function Header() {
 
                     {/* Column 3: Instrumentation */}
                     <div className="space-y-2">
-                      <button onClick={() => handleServiceClick('Instrumentation Facilities')} className="font-semibold text-gray-800 bg-gray-100 px-4 py-2 rounded-md w-full text-left text-sm hover:bg-gray-200">Instrumentation Facilities</button>
+                      <button onClick={() => handleServiceClick('Instrumentation Facilities')} className="font-semibold text-gray-800 bg-gray-100 px-4 py-2 cursor-pointer rounded-md w-full text-left text-sm hover:bg-gray-200">Instrumentation Facilities</button>
                       <ul className="space-y-2 text-xs ml-2 text-gray-600">
                         <li className="hover:text-blue-600 whitespace-nowrap">Atomic Absorption Spectrophotometer</li>
                         <li className="hover:text-blue-600">UV Visible Spectrophotometer</li>
@@ -446,7 +446,7 @@ function Header() {
 
                     {/* Column 4: Other Categories */}
                     <div className="space-y-2">
-                      <button onClick={() => handleServiceClick('Instrumentation Facilities')} className="font-semibold text-gray-800 bg-gray-100 px-4 py-2 rounded-md w-full text-left text-sm hover:bg-gray-200">Solid waste management</button>
+                      <button onClick={() => handleServiceClick('Instrumentation Facilities')} className="font-semibold text-gray-800 cursor-pointer bg-gray-100 px-4 py-2 rounded-md w-full text-left text-sm hover:bg-gray-200">Solid waste management</button>
                       <ul className="space-y-2 text-xs ml-2 text-gray-600">
                         <li className="hover:text-blue-600 whitespace-nowrap">Municipal Solid Waste</li>
                         <li className="hover:text-blue-600">Bio Mask</li>
