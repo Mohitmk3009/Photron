@@ -16,7 +16,7 @@ const Footer = () => {
                         width={300}
                         height={100}
                         className='lg:w-[200px] w-[100px]'
-                        alt="Chairbord Logo"
+                        alt="Photron Logo"
                     />
 
                     {/* <h2 className="text-3xl font-bold text-[#00B4FF]">ABOUT US</h2> */}
