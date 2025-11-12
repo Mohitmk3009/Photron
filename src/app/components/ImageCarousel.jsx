@@ -10,7 +10,7 @@ import b5 from "../assets/5.jpg";
 import b6 from "../assets/bg4.jpg";
 
 const ImageCarousel = () => {
-  const slides = [b1, b4, b2, b3, b6, b5];
+  const slides = [b1, b3, b2, b4, b6, b5];
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const startX = useRef(0);

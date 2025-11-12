@@ -50,7 +50,7 @@ const AboutUs = () => {
                     <h4 className="text-[#035096] lg:text-2xl text-lg font-semibold lg:mb-3 mb-1">
                         About us
                     </h4>
-                    <h2 className=" text-black lg:text-4xl text-2xl   text-justify font-bold lg:mb-2 mb-2">
+                    <h2 className=" text-black lg:text-4xl text-2xl font-bold lg:mb-2 mb-2">
                         Photron Laboratories Private Limited
                     </h2>
                     <h2 className=" text-black lg:text-xl text-base text-justify font-semibold lg:mb-4 mb-2">
