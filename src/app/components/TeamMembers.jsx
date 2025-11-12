@@ -1029,7 +1029,7 @@ const teamMembers = [
   {
     id: 1,
     name: 'Chandramani Tripathi',
-    title: 'CEO',
+    title: 'Director',
     // description: 'Former co-founder of Opendoor. Early staff at Spotify and Clearbit.',
     // For local images, place them in your Next.js public directory (e.g., public/images/sienna.jpg)
     // and reference them like this: '/images/sienna.jpg'
@@ -1038,7 +1038,7 @@ const teamMembers = [
   {
     id: 2,
     name: 'Shivendra Verma',
-    title: 'CEO',
+    title: 'Director',
     // description: 'Lead engineering teams at Netflix, Pitch, and Protocol Labs',
     image: m4// Example local image path
   },
